@@ -18,12 +18,18 @@
     <ClInclude Include="Word.h">
       <Filter>头文件</Filter>
     </ClInclude>
+    <ClInclude Include="json11-master\json11.hpp">
+      <Filter>头文件</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Word.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
     <ClCompile Include="main.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="json11-master\json11.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
   </ItemGroup>

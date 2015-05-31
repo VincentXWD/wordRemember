@@ -5,6 +5,8 @@
 #include <iostream>
 #include <cstdlib>
 #include <iomanip>
+#include "json11-master/json11.hpp"
+using namespace json11;
 using namespace std;
 
 typedef struct __CONFIG
