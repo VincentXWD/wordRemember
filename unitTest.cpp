@@ -15,6 +15,7 @@ int main()
 	//testmode.wordExit();
 	testmode.wordExam();
 //	testmode.wordShow();
+	system("pause");
 	return EXIT_SUCCESS;
 }
 //*/

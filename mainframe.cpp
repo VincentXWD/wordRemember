@@ -103,7 +103,7 @@ void mainFrame::wordDelete()	//删除单词
 
 void mainFrame::wordExercise()//背单词
 {
-
+	/*含斩词功能*/
 }
 
 void mainFrame::wordExam()
@@ -152,6 +152,11 @@ void mainFrame::wordExam()
 	}
 	ratio = double(score) / double(range);
 	cout << "考试结束，你一共得了 " << score << "分" << "正确率为 " << ratio*100 <<"%，请再接再厉！" << endl;
+}
+
+void mainFrame::killShow()	//显示已斩单词*
+{
+
 }
 
 void mainFrame::wordExit()	//退出本软件

@@ -7,6 +7,7 @@
 #include <cstdlib>
 #include <iomanip>
 #include "dataBase.h"
+#include "killedList.h"
 
 using namespace std;
 
@@ -19,6 +20,7 @@ public:					/*功能*/
 	void wordInit();	//初始化界面
 	void wordInput();	//录入新单词
 	void wordShow();	//显示词典
+	void killShow();	//显示已斩单词*
 	void sortWord();	//单词排序
 	void wordChange();	//修改单词
 	void wordDelete();	//删除单词
@@ -28,5 +30,6 @@ public:					/*功能*/
 //public:
 //	__DATABASE getDatabase();	//test
 protected:
-	__DATABASE dataBase;//数据库
+	__DATABASE dataBase;	//单词数据库
+	__KILLEDLIST killedBase;//已斩单词数据库
 }mainFrame;

@@ -79,11 +79,13 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="dataBase.h" />
+    <ClInclude Include="killedList.h" />
     <ClInclude Include="mainframe.h" />
     <ClInclude Include="wordList.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="dataBase.cpp" />
+    <ClCompile Include="killedList.cpp" />
     <ClCompile Include="unitTest.cpp" />
     <ClCompile Include="mainframe.cpp" />
     <ClCompile Include="wordList.cpp" />
