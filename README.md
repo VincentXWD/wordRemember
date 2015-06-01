@@ -1,2 +1,0 @@
-# wordRemember
-Simulation in CLI.

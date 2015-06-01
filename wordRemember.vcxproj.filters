@@ -15,22 +15,33 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Word.h">
+    <ClInclude Include="testMode.h">
       <Filter>头文件</Filter>
     </ClInclude>
-    <ClInclude Include="json11-master\json11.hpp">
+    <ClInclude Include="dataBase.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="wordList.h">
       <Filter>头文件</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="Word.cpp">
+    <ClCompile Include="testMode.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="dataBase.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
     <ClCompile Include="main.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
-    <ClCompile Include="json11-master\json11.cpp">
+    <ClCompile Include="wordList.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Data\dictionary.dat">
+      <Filter>资源文件</Filter>
+    </None>
   </ItemGroup>
 </Project>

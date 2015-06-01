@@ -1,8 +1,8 @@
-#include "Word.h"
+#include "testMode.h"
 
 int main()
 {
-	Word test;
-	test.wordShow();
+	testMode testmode;
+	testmode.wordInit();
 	return EXIT_SUCCESS;
 }

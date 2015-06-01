@@ -11,7 +11,7 @@
     </ProjectConfiguration>
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGuid>{CC0A5BFF-D828-48A2-8D79-A3F120159D97}</ProjectGuid>
+    <ProjectGuid>{CA0B655C-5983-4165-878B-E3A59561E714}</ProjectGuid>
     <Keyword>Win32Proj</Keyword>
     <RootNamespace>wordRemember</RootNamespace>
   </PropertyGroup>
@@ -78,13 +78,18 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClInclude Include="json11-master\json11.hpp" />
-    <ClInclude Include="Word.h" />
+    <ClInclude Include="dataBase.h" />
+    <ClInclude Include="testMode.h" />
+    <ClInclude Include="wordList.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="json11-master\json11.cpp" />
+    <ClCompile Include="dataBase.cpp" />
     <ClCompile Include="main.cpp" />
-    <ClCompile Include="Word.cpp" />
+    <ClCompile Include="testMode.cpp" />
+    <ClCompile Include="wordList.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Data\dictionary.dat" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
