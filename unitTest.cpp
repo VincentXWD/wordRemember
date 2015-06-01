@@ -13,7 +13,8 @@ int main()
 	//testmode.wordDelete();
 	//testmode.wordExercise();
 	//testmode.wordExit();
-	testmode.wordShow();
+	testmode.wordExam();
+//	testmode.wordShow();
 	return EXIT_SUCCESS;
 }
 //*/

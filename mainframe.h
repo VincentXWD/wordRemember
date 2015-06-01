@@ -23,6 +23,7 @@ public:					/*功能*/
 	void wordChange();	//修改单词
 	void wordDelete();	//删除单词
 	void wordExercise();//背单词
+	void wordExam();	//考单词
 	void wordExit();	//退出本软件
 //public:
 //	__DATABASE getDatabase();	//test

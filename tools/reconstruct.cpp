@@ -17,7 +17,7 @@ int main()
 		cn.push_back(cnbuffer);
 	}
 	fileRead.close();
-	ofstream fileWrite("traned.dat", ios::out);
+	ofstream fileWrite("data.dat", ios::out);
 	for(int i = 0; i < cn.size(); i++)
 	{
 		fileWrite << en[i] << " " << cn[i] << endl;

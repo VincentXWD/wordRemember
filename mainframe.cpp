@@ -1,4 +1,7 @@
 #include "mainframe.h"
+#include <random>
+#include <algorithm>
+#include <iomanip>
 
 __MAINFRAME::__MAINFRAME() {}
 
@@ -36,15 +39,16 @@ void mainFrame::wordInput()	//录入新单词
 
 void mainFrame::wordShow()	//显示词典
 {
-	int LEN = dataBase.wordSize();
+	//int LEN = dataBase.wordSize();
 	/*输出提示信息：查看完单词表后请关闭*/
-	for (int i = 0; i < LEN; i++)
-	{
-		wordList BUFFER;
-		BUFFER = dataBase.getWord(i);
-		cout << BUFFER.getEnglish() << " " << BUFFER.getChinese() << endl;
-	}
-//	system("notepad Data\\dictionary.dat");	//读取文件
+	//for (int i = 0; i < LEN; i++)
+	//{
+	//	wordList BUFFER;
+	//	BUFFER = dataBase.getWord(i);
+	//	cout << BUFFER.getEnglish() << " " << BUFFER.getChinese() << endl;
+	//}
+	cout << "wordNum: " << dataBase.wordSize() << endl;
+	system("notepad Data\\dictionary.dat");	//读取文件
 	return ;
 }
 
@@ -102,12 +106,55 @@ void mainFrame::wordExercise()//背单词
 
 }
 
+void mainFrame::wordExam()
+{
+	random_device rd;
+	uniform_int_distribution<int> dicSeed(1, dataBase.wordSize() - 1);	//生成从词典取单词的随机数的种子
+	uniform_int_distribution<int> ansSeed(0, 3);
+	dicSeed(rd);
+	wordList optAns[4];	//存储四个备选答案
+	string answer;	//用来存放答案
+	int ansNum, chsNum;
+	int score = 0, count = 1;
+	int range;	//单词数目
+	double ratio;
+	cout << "欢迎进入小测验模式，你希望背几个单词呢？   ";	//界面版改成可选
+	cin >> range;
+	cout << endl;
+	for (int i = 0; i < range; i++)
+	{
+		for (int i = 0; i < 4; i++)	//给四个答案赋值
+		{
+			optAns[i] = dataBase.getWord(dicSeed(rd));
+		}
+		ansNum = ansSeed(rd);	//生成随机答案
+		for (int i = 0; i < 4; i++)
+		{
+			cout << i+1 << ": " << left << setw(10) << optAns[i].getEnglish();
+			if ((i+1) % 2 == 0)
+			{
+				cout << endl;
+			}
+		}
+		cout << "Round " << count++ << ": 请选择英文为\"" << optAns[ansNum].getChinese() << "\"的单词。    ";
+		
+		cin >> chsNum;
+		chsNum--;	//匹配存放数字习惯
+		if (chsNum == ansNum)
+		{
+			score++;
+			cout << "你答对了" << endl;
+		}
+		else
+		{
+			cout << "对不起，你答错了。" << endl;
+		}
+	}
+	ratio = double(score) / double(range);
+	cout << "考试结束，你一共得了 " << score << "分" << "正确率为 " << ratio*100 <<"%，请再接再厉！" << endl;
+}
+
 void mainFrame::wordExit()	//退出本软件
 {
 	exit(EXIT_SUCCESS);
 }
-
-//__DATABASE testMode::getDatabase()	//test
-//{
-//	return dataBase;
-//}
