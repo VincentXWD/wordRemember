@@ -32,7 +32,7 @@ void testMode::wordDelete()
 
 }
 
-void testMode::wordExam()
+void testMode::wordExercise()
 {
 
 }

@@ -22,8 +22,8 @@ public:					/*功能*/
 	void wordShow();	//显示词典
 	void wordChange();	//修改单词
 	void wordDelete();	//删除单词
-	void wordExam();	//背单词
+	void wordExercise();//背单词
 	void wordExit();	//退出本软件
 protected:
-	__DATABASE dataBase;
+	__DATABASE dataBase;//数据库
 }testMode;
