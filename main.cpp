@@ -1,8 +1,8 @@
-#include "testMode.h"
+#include "mainframe.h"
 
 int main()
 {
-	testMode testmode;
+	mainFrame testmode;
 	testmode.wordInit();
 	return EXIT_SUCCESS;
 }

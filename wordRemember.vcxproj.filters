@@ -15,20 +15,17 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="testMode.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
     <ClInclude Include="dataBase.h">
       <Filter>头文件</Filter>
     </ClInclude>
     <ClInclude Include="wordList.h">
       <Filter>头文件</Filter>
     </ClInclude>
+    <ClInclude Include="mainframe.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="testMode.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
     <ClCompile Include="dataBase.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
@@ -36,6 +33,9 @@
       <Filter>源文件</Filter>
     </ClCompile>
     <ClCompile Include="wordList.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="mainframe.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
   </ItemGroup>

@@ -3,9 +3,11 @@
 #include <string>
 #include <fstream>
 #include "dataBase.h"
+
 #define NOTFOUND_INT -1
 #define NOTFOUND_BOOL false
 #define CHANGESUCCESS true
+
 using namespace std;
 
 __DATABASE::__DATABASE()	/*³õÊ¼»¯²Ù×÷*/
@@ -22,7 +24,15 @@ __DATABASE::__DATABASE()	/*³õÊ¼»¯²Ù×÷*/
 	fileRead.close();
 }
 
-__DATABASE::~__DATABASE(){}
+__DATABASE::~__DATABASE()						//±£´æ´Êµä
+{
+	ofstream fileWrite("Data/dictionary.dat", ios::out);
+	for (int i = 0; i < wordSize(); i++)
+	{
+		fileWrite << word[i].getEnglish() << " " << word[i].getChinese() << endl;
+	}
+	fileWrite.close();
+}
 
 int DATABASE::wordSize()		//Í³¼Æµ¥´ÊÊý£¬·µ»ØÖµÎªµ¥´ÊÊý
 {
@@ -60,6 +70,19 @@ wordList DATABASE::getWord(int num)				//¸ù¾ÝÓ¢ÎÄÐòºÅ¶ÔÓ¦µ¥´Ê£¬·µ»ØÖµÎªµ¥´Ê½Úµã
 	return word[num];
 }
 
+bool DATABASE::removeWord(int num)				//É¾³ýµ¥´Ê
+{
+	if(num < 0 || num > wordSize() - 1)
+	{
+		return NOTFOUND_BOOL;
+	}
+	else
+	{
+		word.erase(begin(word) + num - 1);
+		return CHANGESUCCESS;
+	}
+}
+
 int DATABASE::searchWord(string curEnglish)		//¸ù¾ÝÓ¢ÎÄ²éÕÒ¶ÔÓ¦µ¥´Ê£¬·µ»ØÖµÎªµ¥´ÊÐòºÅ£¨¶þ·Ö£©
 {
 	sortWord();												//·ÀÖ¹³ö´í£¬ÏÈÅÅÐò
@@ -92,7 +115,7 @@ bool DATABASE::changeWordNum(int num, wordList curwordlist)				//°´ÐòºÅ¶ÔÓ¦µ¥´Ê²
 		return NOTFOUND_BOOL;
 	}
 	word[num] = curwordlist;
-	sortWord();
+	sortWord();				//ÅÅÐò
 	return CHANGESUCCESS;
 }
 

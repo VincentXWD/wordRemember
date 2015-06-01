@@ -1,7 +1,8 @@
 #include "wordList.h"
 
-
 __WORDLIST::__WORDLIST() {}
+
+__WORDLIST::__WORDLIST(string en, string cn) : English(en), Chinese(cn) {}
 
 __WORDLIST::~__WORDLIST() {}
 
