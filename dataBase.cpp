@@ -15,6 +15,7 @@ __DATABASE::__DATABASE()	/*初始化操作*/
 	string enBuffer;
 	string cnBuffer;
 	ifstream fileRead("Data/dictionary.dat");
+	sortWord();
 	while (fileRead >> enBuffer >> cnBuffer)	//硬盘文件转入内存
 	{
 		wordlist.changeChinese(cnBuffer);
@@ -72,7 +73,7 @@ wordList DATABASE::getWord(int num)				//根据英文序号对应单词，返回值为单词节点
 
 bool DATABASE::removeWord(int num)				//删除单词
 {
-	if(num < 0 || num > wordSize() - 1)
+	if(num < 0 || num > wordSize())
 	{
 		return NOTFOUND_BOOL;
 	}

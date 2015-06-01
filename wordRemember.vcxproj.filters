@@ -29,13 +29,13 @@
     <ClCompile Include="dataBase.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
-    <ClCompile Include="main.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
     <ClCompile Include="wordList.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
     <ClCompile Include="mainframe.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="unitTest.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
   </ItemGroup>
