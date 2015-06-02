@@ -317,7 +317,10 @@ void mainFrame::wordExam()	//海底捞模式
 		}
 	}
 	ratio = double(score) / double(range);
-	cout << "考试结束，你一共得了 " << score << "分" << "正确率为 " << ratio*100 <<"%，请再接再厉！" << endl;
+	cout << "Stop，你一共得了 " << score << "分" << "正确率为 " << ratio * 100 << "%，请再接再厉！" << endl;
+	cout << endl << "按任意键退出。" << endl;
+	fflush(stdin);
+	getchar();
 }
 
 void mainFrame::killShow()	//显示已斩单词
