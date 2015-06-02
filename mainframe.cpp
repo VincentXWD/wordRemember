@@ -7,9 +7,9 @@ __MAINFRAME::__MAINFRAME() {}
 
 __MAINFRAME::~__MAINFRAME() {}
 
-void mainFrame::wordInit()		//初始化界面
+void mainFrame::CLIwordInit()		//命令行版初始化界面
 {
-	killedBase.sortWord();
+	
 }
 
 void mainFrame::wordInput()	//录入新单词
@@ -116,48 +116,83 @@ void mainFrame::wordExercise()	//背单词
 	}
 }
 
-void mainFrame::wordExam()	
+void mainFrame::wordExam()	//海底捞模式
 {
-	random_device rd;
+	random_device rd;	//种子
 	uniform_int_distribution<int> dicSeed(1, dataBase.wordSize() - 1);	//生成从词典取单词的随机数的种子
-	uniform_int_distribution<int> ansSeed(0, 3);
+	uniform_int_distribution<int> ansSeed(0, 3);						//生成四个数中的一个作为答案的种子
+	uniform_int_distribution<int> exaSeed(0, 1);						//生成题目是汉译英还是英译汉的种子
 	dicSeed(rd);
 	wordList optAns[4];	//存储四个备选答案
 	string answer;	//用来存放答案
 	int ansNum, chsNum;
 	int score = 0, count = 1;
 	int range;	//单词数目
+	int exam;
 	double ratio;
 	cout << "欢迎进入小测验模式，你希望背几个单词呢？   ";	//界面版改成可选
 	cin >> range;
 	cout << endl;
 	for (int i = 0; i < range; i++)
 	{
-		for (int i = 0; i < 4; i++)	//给四个答案赋值
+		exam = exaSeed(rd);
+		if (exam == 0)	/*题干中文选项英语*/
 		{
-			optAns[i] = dataBase.getWord(dicSeed(rd));
-		}
-		ansNum = ansSeed(rd);	//生成随机答案
-		for (int i = 0; i < 4; i++)
-		{
-			cout << i+1 << ": " << left << setw(10) << optAns[i].getEnglish();
-			if ((i+1) % 2 == 0)
+			for (int i = 0; i < 4; i++)	//给四个答案赋值
 			{
-				cout << endl;
+				optAns[i] = dataBase.getWord(dicSeed(rd));
+			}
+			ansNum = ansSeed(rd);	//生成随机答案
+			for (int i = 0; i < 4; i++)
+			{
+				cout << i + 1 << ": " << left << setw(10) << optAns[i].getEnglish();
+				if ((i + 1) % 2 == 0)
+				{
+					cout << endl;
+				}
+			}
+			cout << "Round " << count++ << ": 请选择英文为\"" << optAns[ansNum].getChinese() << "\"的单词。    ";
+
+			cin >> chsNum;
+			chsNum--;	//匹配存放数字习惯
+			if (chsNum == ansNum)
+			{
+				score++;
+				cout << "你答对了" << endl;
+			}
+			else
+			{
+				cout << "对不起，你答错了。" << endl;
 			}
 		}
-		cout << "Round " << count++ << ": 请选择英文为\"" << optAns[ansNum].getChinese() << "\"的单词。    ";
-		
-		cin >> chsNum;
-		chsNum--;	//匹配存放数字习惯
-		if (chsNum == ansNum)
+		else if (exam == 1)	/*题干英语选项中文*/
 		{
-			score++;
-			cout << "你答对了" << endl;
-		}
-		else
-		{
-			cout << "对不起，你答错了。" << endl;
+			for (int i = 0; i < 4; i++)	//给四个答案赋值
+			{
+				optAns[i] = dataBase.getWord(dicSeed(rd));
+			}
+			ansNum = ansSeed(rd);	//生成随机答案
+			for (int i = 0; i < 4; i++)
+			{
+				cout << i + 1 << ": " << left << setw(10) << optAns[i].getChinese();
+				if ((i + 1) % 2 == 0)
+				{
+					cout << endl;
+				}
+			}
+			cout << "Round " << count++ << ": 请选择中文为\"" << optAns[ansNum].getEnglish() << "\"的汉语。    ";
+
+			cin >> chsNum;
+			chsNum--;	//匹配存放数字习惯
+			if (chsNum == ansNum)
+			{
+				score++;
+				cout << "你答对了" << endl;
+			}
+			else
+			{
+				cout << "对不起，你答错了。" << endl;
+			}
 		}
 	}
 	ratio = double(score) / double(range);

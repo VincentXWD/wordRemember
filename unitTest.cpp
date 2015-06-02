@@ -17,7 +17,7 @@ int main()
 	//testmode.wordShow();
 	//cout << endl;
 	//testmode.killShow();
-	testmode.killedRescue();
+	testmode.wordExam();
 	return EXIT_SUCCESS;
 }
 //*/
