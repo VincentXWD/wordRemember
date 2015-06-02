@@ -8,4 +8,3 @@ public:
 	__KILLEDLIST();
 	~__KILLEDLIST();
 }killedList;
-

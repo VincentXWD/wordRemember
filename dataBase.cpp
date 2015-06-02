@@ -14,6 +14,7 @@ __DATABASE::__DATABASE()	/*初始化操作*/
 {
 	string enBuffer;
 	string cnBuffer;
+
 	ifstream fileRead("Data/dictionary.dat");	//打开词典
 	if (!fileRead)
 	{
@@ -93,7 +94,7 @@ bool DATABASE::removeWord(int num)				//删除单词
 
 int DATABASE::searchWord(string curEnglish)		//根据英文查找对应单词，返回值为单词序号（二分）
 {
-	sortWord();												//防止出错，先排序
+	sortWord();												//想二分，先排序
 	int left = 0;
 	int right = wordSize() - 1;
 	int middle;

@@ -9,7 +9,7 @@ __MAINFRAME::~__MAINFRAME() {}
 
 void mainFrame::wordInit()		//初始化界面
 {
-
+	killedBase.sortWord();
 }
 
 void mainFrame::wordInput()	//录入新单词
@@ -34,7 +34,6 @@ void mainFrame::wordInput()	//录入新单词
 		//  但是对于类对象数组，只能用 delete[]。
 		//  对于 new 的单个对象，只能用 delete 不能用 delete[] 回收空间。
 	}
-	return ;
 }
 
 void mainFrame::wordShow()	//显示词典
@@ -49,13 +48,11 @@ void mainFrame::wordShow()	//显示词典
 	//}
 	cout << "wordNum: " << dataBase.wordSize() << endl;
 	system("notepad Data\\dictionary.dat");	//读取文件
-	return ;
 }
 
 void mainFrame::sortWord()	//单词排序
 {
 	dataBase.sortWord();
-	return ;
 }
 void mainFrame::wordChange()	//修改单词
 {
@@ -98,15 +95,28 @@ void mainFrame::wordDelete()	//删除单词
 		dataBase.removeWord(Num);
 		/*提示单词删除成功*/
 	}
-	return;
 }
 
-void mainFrame::wordExercise()//背单词
+void mainFrame::wordExercise()	//背单词
 {
-	/*含斩词功能*/
+	random_device rd;
+	uniform_int_distribution<int> dicSeed(1, dataBase.wordSize() - 1);	//生成从词典取单词的随机数的种子
+	dicSeed(rd);
+	vector<wordList> answers;
+	int len;
+	/**/
+	cin >> len;
+	for (int i = 0; i < len; i++)
+	{
+		int chosen = dicSeed(rd);
+		wordList word = dataBase.getWord(chosen);
+		answers.push_back(word);
+		cout << answers[i].getEnglish() << setw(10) << answers[i].getChinese() << endl;
+		wordKiller(chosen);	//斩词功能
+	}
 }
 
-void mainFrame::wordExam()
+void mainFrame::wordExam()	
 {
 	random_device rd;
 	uniform_int_distribution<int> dicSeed(1, dataBase.wordSize() - 1);	//生成从词典取单词的随机数的种子
@@ -156,7 +166,39 @@ void mainFrame::wordExam()
 
 void mainFrame::killShow()	//显示已斩单词*
 {
+	cout << "killedNum: " << killedBase.wordSize() << endl;
+	system("notepad Data\\killed.dat");	//读取文件
+}
 
+void mainFrame::wordKiller(int Num)
+{
+	int judge;
+	cout << "输入1斩掉它" << endl;
+	cin >> judge;
+	if (judge == 1)
+	{
+		killedBase.addWord(dataBase.getWord(Num));
+		dataBase.removeWord(Num+1);
+	}
+}
+
+void mainFrame::killedRescue()	//恢复已斩单词
+{
+	killShow();
+	cout << "请输入你想恢复的单词的英文拼写：" << endl;
+	string temp;
+	cin >> temp;
+	int Num = killedBase.searchWord(temp);
+	if (Num == -1)
+	{
+		cerr << "没有找到该单词！" << endl;
+	}
+	else
+	{
+		wordList wtmp = killedBase.getWord(Num);
+		killedBase.removeWord(Num+1);	//删掉已斩词中的单词
+		dataBase.addWord(wtmp);		//放回词典中
+	}
 }
 
 void mainFrame::wordExit()	//退出本软件

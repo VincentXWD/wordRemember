@@ -13,9 +13,11 @@ int main()
 	//testmode.wordDelete();
 	//testmode.wordExercise();
 	//testmode.wordExit();
-	testmode.wordExam();
-//	testmode.wordShow();
-	system("pause");
+	//testmode.wordExam();
+	//testmode.wordShow();
+	//cout << endl;
+	//testmode.killShow();
+	testmode.killedRescue();
 	return EXIT_SUCCESS;
 }
 //*/

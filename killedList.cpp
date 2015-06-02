@@ -1,9 +1,10 @@
 #include "killedList.h"
 #include <fstream>
+
 using namespace std;
 
 
-__KILLEDLIST::__KILLEDLIST()
+__KILLEDLIST::__KILLEDLIST() : __DATABASE()
 {
 	string enBuffer;
 	string cnBuffer;
@@ -15,6 +16,9 @@ __KILLEDLIST::__KILLEDLIST()
 		system("pause");
 		exit(EXIT_FAILURE);
 	}
+	vector<wordList>().swap(word);
+//	word.clear();
+//	cout << word.capacity() << endl;
 	sortWord();
 	while (fileRead >> enBuffer >> cnBuffer)	//硬盘文件转入内存
 	{
@@ -25,5 +29,12 @@ __KILLEDLIST::__KILLEDLIST()
 	fileRead.close();
 }
 
-
-__KILLEDLIST::~__KILLEDLIST() {}
+__KILLEDLIST::~__KILLEDLIST()
+{
+	ofstream fileWrite("Data/killed.dat", ios::out);
+	for (int i = 0; i < wordSize(); i++)
+	{
+		fileWrite << word[i].getEnglish() << " " << word[i].getChinese() << endl;
+	}
+	fileWrite.close();
+}

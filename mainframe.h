@@ -20,11 +20,13 @@ public:					/*功能*/
 	void wordInit();	//初始化界面
 	void wordInput();	//录入新单词
 	void wordShow();	//显示词典
-	void killShow();	//显示已斩单词*
+	void killShow();	//显示已斩单词
 	void sortWord();	//单词排序
 	void wordChange();	//修改单词
 	void wordDelete();	//删除单词
-	void wordExercise();//背单词
+	void wordKiller(int);//斩词
+	void killedRescue();//恢复已斩单词
+	void wordExercise();//背单词(可斩词)
 	void wordExam();	//考单词
 	void wordExit();	//退出本软件
 //public:
