@@ -59,14 +59,12 @@ void DATABASE::sortWord()		//按字典序对词典进行排序
 	{
 		return a.getEnglish() < b.getEnglish();
 	});
-	return ;
 }
 
 void DATABASE::addWord(wordList curwordlist)	//添加新单词
 {
 	word.push_back(curwordlist);
 	sortWord();
-	return ;
 }
 
 wordList DATABASE::getWord(int num)				//根据英文序号对应单词，返回值为单词节点

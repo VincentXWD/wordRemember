@@ -7,105 +7,224 @@ __MAINFRAME::__MAINFRAME() {}
 
 __MAINFRAME::~__MAINFRAME() {}
 
+void outputBlank(int n)					//输出回车，规划界面。
+{
+	for (int i = 0; i < n; i++)
+	{
+		cout << endl;
+	}
+}
+
 void mainFrame::CLIwordInit()		//命令行版初始化界面
 {
-	
+	int choice;
+	bool initFlag = true;
+	bool exitflag = false;
+	system("cls");
+	while (1)
+	{
+		if (exitflag == true)
+		{
+			return;
+		}
+		cout << "*******************************欢迎进入wordKiller*******************************" << endl;
+		cout << "****                                                                       ****" << endl;
+		cout << "****                           1.录入新单词                                ****" << endl;
+		cout << "****                           2.显示词典                                  ****" << endl;
+		cout << "****                           3.显示已斩单词                              ****" << endl;
+		cout << "****                           4.恢复已斩单词                              ****" << endl;
+		cout << "****                           5.背单词                                    ****" << endl;
+		cout << "****                           6.海底捞模式                                ****" << endl;
+		cout << "****                           7.修改单词                                  ****" << endl;
+		cout << "****                           8.删除单词                                  ****" << endl;
+		cout << "****                           9.退出软件                                  ****" << endl;
+		outputBlank(1);
+		if (initFlag == true)
+		{
+			cout << "请选择你想要使用的功能：     ";
+		}
+		else
+		{
+			cout << "你的输入有误，请重试！" << endl;
+		}
+		cin >> choice;
+		if (choice > 0 && choice < 10)
+		{
+			initFlag = true;
+		}
+		else
+		{
+			initFlag = false;
+			system("cls");
+			continue;
+		}
+		switch (choice)
+		{
+		case 1:	wordInput();	 break;
+		case 2: wordShow();		 break;
+		case 3: killShow();		 break;
+		case 4: killedRescue();	 break;
+		case 5: wordExercise();  break;
+		case 6: wordExam();		 break;
+		case 7: wordChange(); 	 break;
+		case 8: wordDelete();	 break;
+		case 9: exitflag = true; break;
+		}
+		system("cls");
+	}
 }
 
 void mainFrame::wordInput()	//录入新单词
 {
-	string curEnglish;
+	string curEnglish = "!";
 	string curChinese;
-	/*输出提示信息，并且输入 英文单词*/
-	if (dataBase.searchWord(curEnglish) >= 0)	//存在
-	{
-		/*提示单词已存在，不需要添加,返回*/
-	}
-	else
-	{
-		/*输出提示信息，并且输入 中文单词*/
-		wordList* __BUFFER = new wordList(curEnglish, curChinese);
-		dataBase.addWord(*__BUFFER);
-		delete __BUFFER;
-		/*输出成功添加单词的信息*/
 
-		//  如果用 delete[]，则在回收空间之前所有对象都会首先调用自己的析构函数。
-		//	基本类型的对象没有析构函数，所以回收基本类型组成的数组空间用 delete 和 delete[] 都是应该可以的；
-		//  但是对于类对象数组，只能用 delete[]。
-		//  对于 new 的单个对象，只能用 delete 不能用 delete[] 回收空间。
+	system("cls");
+	cout << "****                           1.录入新单词                                ****" << endl;
+	outputBlank(2);
+	while (curEnglish != "#")
+	{
+		cout << "请输入你想要录入的英文单词，按#退出：      ";
+		cin >> curEnglish;
+		if (curEnglish == "#")
+		{
+			break;
+		}
+		if (dataBase.searchWord(curEnglish) >= 0)	//存在
+		{
+			/*提示单词已存在，不需要添加,返回*/
+			cout << "单词已存在，并不需要再次添加。" << endl;
+		}
+		else
+		{
+			/*输出提示信息，并且输入 中文单词*/
+			cout << "请输入汉语释意：      ";
+			cin >> curChinese;
+			wordList BUFFER(curEnglish, curChinese);
+			dataBase.addWord(BUFFER);
+			cout << "录入完毕，您录入的单词为: " << curEnglish << "， 它的解释为： " << curChinese << endl;
+		}
 	}
 }
 
 void mainFrame::wordShow()	//显示词典
 {
-	//int LEN = dataBase.wordSize();
+	int LEN = dataBase.wordSize();
 	/*输出提示信息：查看完单词表后请关闭*/
-	//for (int i = 0; i < LEN; i++)
-	//{
-	//	wordList BUFFER;
-	//	BUFFER = dataBase.getWord(i);
-	//	cout << BUFFER.getEnglish() << " " << BUFFER.getChinese() << endl;
-	//}
-	cout << "wordNum: " << dataBase.wordSize() << endl;
-	system("notepad Data\\dictionary.dat");	//读取文件
+	system("cls");
+	cout << "****                           2.显示词典                                  ****" << endl;
+	outputBlank(2);
+	cout << "您的词典里一共有 " << dataBase.wordSize() << "个单词。" << endl << endl;
+	for (int i = 0; i < LEN; i++)
+	{
+		wordList BUFFER;
+		BUFFER = dataBase.getWord(i);
+		cout << BUFFER.getEnglish() << " " << BUFFER.getChinese() << endl;
+	}
+	//	system("notepad Data\\dictionary.dat");	//读取文件
+	outputBlank(2);
+	cout << "按任意键返回。 " << endl;
+	fflush(stdin);
+	getchar();
 }
 
 void mainFrame::sortWord()	//单词排序
 {
 	dataBase.sortWord();
 }
+
 void mainFrame::wordChange()	//修改单词
 {
-	string curEnglish;
-	string curChinese;
 	int Num;
-	/*输出提示信息，并输入想要修改的单词*/
-//	cin >> curEnglish;
-	if(dataBase.searchWord(curEnglish) < 0)
+	string curEnglish = "!";
+	string curChinese;
+	system("cls");
+	cout << "****                           7.修改单词                                  ****" << endl;
+	outputBlank(2);
+	while (curEnglish != "#")
 	{
-		/*提示单词不存在，输入错误，返回*/
-//		cout << "no" << endl;
-	}
-	else
-	{
-		/*输出提示信息，输入单词的中文*/
-//		cout << "yes!" << endl;
-		cin >> curEnglish >> curChinese;
-		Num = dataBase.searchWord(curEnglish) + 1;
-		wordList BUFFER(curEnglish, curChinese);
-		dataBase.changeWordNum(Num, BUFFER);
-		/*提示修改成功*/
+		if (dataBase.wordIsEmpty())
+		{
+			bool ADD;
+			cout << "你还没有添加任何单词，是否要添加单词(1添加/0不添加)？" << endl;
+			cin >> ADD;
+			fflush(stdin);
+			if (ADD)
+			{
+				wordInput();
+				break;
+			}
+			else
+			{
+				return;
+			}
+		}
+		cout << "请输入你想要修改的单词的拼写，输入#退出：      ";
+		cin >> curEnglish;
+		fflush(stdin);	//清空缓冲区
+		if (dataBase.searchWord(curEnglish) < 0)
+		{
+			/*提示单词不存在，输入错误，返回*/
+			cout << "此单词并不能存在，请重试。" << endl;
+		}
+		else
+		{
+			/*输出提示信息，输入单词的中文*/
+			cout << "请输入你想要修改单词对应的中文解释：      ";
+			cin >> curChinese;
+			fflush(stdin);
+			Num = dataBase.searchWord(curEnglish);
+			wordList BUFFER(curEnglish, curChinese);
+			dataBase.changeWordNum(Num, BUFFER);
+			cout << "修改成功！按任意键退出。 " << endl;
+			getchar();
+			return ;
+			/*提示修改成功*/
+		}
 	}
 }
 
 void mainFrame::wordDelete()	//删除单词
 {
-	string curEnglish;
+	system("cls");
+	string curEnglish = "!";
 	string curChinese;
 	int Num;
-	/*输出提示信息，并输入想要删除的单词*/
-//	cin >> curEnglish;
-	if (dataBase.searchWord(curEnglish) < 0)	//不存在
+	cout << "****                           8.删除单词                                  ****" << endl;
+	outputBlank(2);
+	while (curEnglish != "#")
 	{
-		/*提示单词不存在，输入错误,返回*/
-	}
-	else
-	{
-		Num = dataBase.searchWord(curEnglish) + 1;
-		dataBase.removeWord(Num);
-		/*提示单词删除成功*/
+		cout << "请输入你想删除的单词的英文，输入#退出：      ";
+		cin >> curEnglish;
+		if (curEnglish == "#")
+		{
+			break;
+		}
+		if (dataBase.searchWord(curEnglish) < 0)	//不存在
+		{
+			cout << "少侠选单词并不存在，请重新选择！ " << endl;
+		}
+		else
+		{
+			Num = dataBase.searchWord(curEnglish) + 1;
+			dataBase.removeWord(Num);
+			cout << "删除成功！你再也见不到它了" << endl;
+		}
 	}
 }
 
 void mainFrame::wordExercise()	//背单词
 {
+	system("cls");
+	cout << "****                           5.背单词                                    ****" << endl;
 	random_device rd;
 	uniform_int_distribution<int> dicSeed(1, dataBase.wordSize() - 1);	//生成从词典取单词的随机数的种子
 	dicSeed(rd);
 	vector<wordList> answers;
 	int len;
-	/**/
+	cout << "您的词典里有" << dataBase.wordSize() << "个单词，少侠想背几个单词？      ";
 	cin >> len;
+	fflush(stdin);
 	for (int i = 0; i < len; i++)
 	{
 		int chosen = dicSeed(rd);
@@ -118,6 +237,8 @@ void mainFrame::wordExercise()	//背单词
 
 void mainFrame::wordExam()	//海底捞模式
 {
+	system("cls");
+	cout << "****                           6.海底捞模式                                ****" << endl;
 	random_device rd;	//种子
 	uniform_int_distribution<int> dicSeed(1, dataBase.wordSize() - 1);	//生成从词典取单词的随机数的种子
 	uniform_int_distribution<int> ansSeed(0, 3);						//生成四个数中的一个作为答案的种子
@@ -130,9 +251,9 @@ void mainFrame::wordExam()	//海底捞模式
 	int range;	//单词数目
 	int exam;
 	double ratio;
-	cout << "欢迎进入小测验模式，你希望背几个单词呢？   ";	//界面版改成可选
+	cout << "欢迎进入\"海底捞\"模式，少侠希望考几个单词呢？      ";	//界面版改成可选
 	cin >> range;
-	cout << endl;
+	cout << "Link start!" << endl << endl;
 	for (int i = 0; i < range; i++)
 	{
 		exam = exaSeed(rd);
@@ -199,16 +320,28 @@ void mainFrame::wordExam()	//海底捞模式
 	cout << "考试结束，你一共得了 " << score << "分" << "正确率为 " << ratio*100 <<"%，请再接再厉！" << endl;
 }
 
-void mainFrame::killShow()	//显示已斩单词*
+void mainFrame::killShow()	//显示已斩单词
 {
-	cout << "killedNum: " << killedBase.wordSize() << endl;
-	system("notepad Data\\killed.dat");	//读取文件
+	system("cls");
+	cout << "****                           3.显示已斩单词                              ****" << endl;
+	cout << "您一共斩了: " << killedBase.wordSize() << " 个单词，请务必再接再厉！" << endl;
+//	system("notepad Data\\killed.dat");	//读取文件
+	for (int i = 0; i < killedBase.wordSize(); i++)
+	{
+		wordList BUFFER;
+		BUFFER = killedBase.getWord(i);
+		cout << BUFFER.getEnglish() << " " << BUFFER.getChinese() << endl;
+	}
+	outputBlank(2);
+	cout << "按任意键返回。 " << endl;
+	fflush(stdin);
+	getchar();
 }
 
 void mainFrame::wordKiller(int Num)
 {
 	int judge;
-	cout << "输入1斩掉它" << endl;
+	cout << "输入1斩掉它，输入0饶了它！      ";
 	cin >> judge;
 	if (judge == 1)
 	{
@@ -219,24 +352,69 @@ void mainFrame::wordKiller(int Num)
 
 void mainFrame::killedRescue()	//恢复已斩单词
 {
-	killShow();
-	cout << "请输入你想恢复的单词的英文拼写：" << endl;
-	string temp;
-	cin >> temp;
-	int Num = killedBase.searchWord(temp);
-	if (Num == -1)
+	system("cls");
+	bool FLAG = true;
+	string temp = "!";
+	cout << "****                           4.恢复已斩单词                              ****" << endl;
+	outputBlank(2);
+	while (temp != "#")
 	{
-		cerr << "没有找到该单词！" << endl;
+		if (killedBase.wordIsEmpty())
+		{
+			int goKill;
+			cout << "您的斩杀名单是空的！想斩个痛快吗？(1去/0不去)" << endl;
+			cin >> goKill;
+			fflush(stdin);
+			if (goKill)
+			{
+				wordExercise();
+				return ;
+			}
+			else
+			{
+				return ;
+			}
+		}
+		if (FLAG)
+		{
+			cout << "您一共斩了: " << killedBase.wordSize() << " 个单词。" << endl;
+			for (int i = 0; i < killedBase.wordSize(); i++)
+			{
+				wordList BUFFER;
+				BUFFER = killedBase.getWord(i);
+				cout << BUFFER.getEnglish() << " " << BUFFER.getChinese() << endl;
+			}
+			FLAG = false;
+		}
+		else
+		{
+			cout << "还剩下 " << killedBase.wordSize() << " 个单词。" << endl;
+			for (int i = 0; i < killedBase.wordSize(); i++)
+			{
+				wordList BUFFER;
+				BUFFER = killedBase.getWord(i);
+				cout << BUFFER.getEnglish() << " " << BUFFER.getChinese() << endl;
+			}
+		}
+		outputBlank(2);
+		cout << "请输入你想恢复的单词的英文拼写，输入#退出恢复功能：" << endl;
+		cin >> temp;
+		if (temp == "#")
+		{
+			return ;
+		}
+		int Num = killedBase.searchWord(temp);
+		if (Num == -1)
+		{
+			cerr << "没有找到该单词！" << endl << endl;
+		}
+		else
+		{
+			wordList wtmp = killedBase.getWord(Num);
+			killedBase.removeWord(Num + 1);	//删掉已斩词中的单词
+			dataBase.addWord(wtmp);		//放回词典中
+		}
 	}
-	else
-	{
-		wordList wtmp = killedBase.getWord(Num);
-		killedBase.removeWord(Num+1);	//删掉已斩词中的单词
-		dataBase.addWord(wtmp);		//放回词典中
-	}
-}
-
-void mainFrame::wordExit()	//退出本软件
-{
-	exit(EXIT_SUCCESS);
+	fflush(stdin);
+	getchar();
 }

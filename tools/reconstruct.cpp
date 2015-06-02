@@ -2,6 +2,7 @@
 #include <fstream>
 #include <vector>
 using namespace std;
+
 int main()
 {
 	ifstream fileRead("temp.dat");

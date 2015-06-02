@@ -16,8 +16,9 @@ __KILLEDLIST::__KILLEDLIST() : __DATABASE()
 		system("pause");
 		exit(EXIT_FAILURE);
 	}
-	vector<wordList>().swap(word);
-//	word.clear();
+	vector<wordList>().swap(word);//由于是继承来的，所以在调用子类构造函数时一定会调用父类的。
+								  //这时候vector内非空，用这个方法清空vector。
+//	word.clear();				  //不可行，得到的值不一定是0（word不一定是空）
 //	cout << word.capacity() << endl;
 	sortWord();
 	while (fileRead >> enBuffer >> cnBuffer)	//硬盘文件转入内存
