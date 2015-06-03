@@ -175,6 +175,7 @@ void DATABASE::rmFromWrong(string curEnglish)			//从错词库中删除
 	int temp = searchWord(curEnglish);
 	word[temp].changeWrongTimes(0);
 }
+
 //bool DATABASE::changeWordWod(wordList tarwordlist, wordList curwordlist)//按单词对应单词并修改，返回是否成功
 //{
 //	int LEN = wordSize() - 1;

@@ -35,8 +35,9 @@ void mainFrame::aboutMe()		//关于作者
 {
 	system("cls");
 	outputBlank(10);
-	cout << "HitomiSAMA发现了彩蛋，Young man！" << endl;
+	cout << "                  HitomiSAMA发现了彩蛋，Young man！" << endl;
 	outputBlank(10);
+	system("pause");
 }
 
 int mainFrame::CLIwordInit()		//命令行版初始化界面
@@ -57,6 +58,7 @@ int mainFrame::CLIwordInit()		//命令行版初始化界面
 		//		famousMotto();
 		cout << "*******************************欢迎进入wordKiller*******************************" << endl;
 		cout << "****                                                                       ****" << endl;
+		cout << "****                           0.单词查询                                  ****" << endl;
 		cout << "****                           1.录入新单词                                ****" << endl;
 		cout << "****                           2.显示词典                                  ****" << endl;
 		cout << "****                           3.显示已斩单词                              ****" << endl;
@@ -66,7 +68,7 @@ int mainFrame::CLIwordInit()		//命令行版初始化界面
 		cout << "****                           7.修改单词                                  ****" << endl;
 		cout << "****                           8.删除单词                                  ****" << endl;
 		cout << "****                           9.复习错词                                  ****" << endl;
-		cout << "****                           0.退出软件                                  ****" << endl;
+		cout << "****                           10.退出软件                                 ****" << endl;
 		outputBlank(1);
 		if (initFlag == true)
 		{
@@ -77,7 +79,7 @@ int mainFrame::CLIwordInit()		//命令行版初始化界面
 			cout << "HitomiSAMA的输入有误，请重试！" << endl;
 		}
 		cin >> choice;
-		if (choice >= 0 && choice < 10)
+		if (choice == 12345 || (choice >= 0 && choice <= 10))
 		{
 			initFlag = true;
 		}
@@ -98,13 +100,35 @@ int mainFrame::CLIwordInit()		//命令行版初始化界面
 		case 7: wordChange(); 	 break;
 		case 8: wordDelete();	 break;
 		case 9: wordReview();	 break;
-		case 0: exitflag = true; break;
+		case 0: wordLooking();	 break;
+		case 10: exitflag = true; break;
 		case 12345: aboutMe();	 break;
 		}
 		system("cls");
 	}
 }
-
+void mainFrame::wordLooking()//查询单词
+{
+	system("cls");
+	string curEnglish = "!";
+	cout << "****                           0.单词查询                                  ****" << endl;
+	outputBlank(2);
+	while (curEnglish != "#")
+	{
+		cout << "请输入HitomiSAMA想要查询的单词的拼写，输入\"#\"退出查询功能：    ";
+		cin >> curEnglish;
+		fflush(stdin);
+		int wd = dataBase.searchWord(curEnglish);
+		if (wd == -1)
+		{
+			cout << "并没有找到该单词！" << endl << endl;
+		}
+		else
+		{
+			cout << "单词 " << curEnglish << " 的中文解释为： " << dataBase.getChinese(wd) << endl << endl;
+		}
+	}
+}
 void mainFrame::wordInput()	//录入新单词
 {
 	string curEnglish = "!";
