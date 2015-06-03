@@ -25,7 +25,7 @@ void mainFrame::famousMotto()	//打印名言
 		motto.push_back(temp);
 	}
 	random_device rd;	//种子
-	uniform_int_distribution<int> dicSeed(0, 10);	//生成从词典取奇怪的东西的随机数的种子
+	uniform_int_distribution<int> dicSeed(0, 10);	//生成从词典取单词的随机数的种子
 	int mtrdm = dicSeed(rd);
 	cout << "*********今日名言： " << motto[mtrdm] << "*********" << endl;
 	fileOpen.close();
@@ -50,23 +50,23 @@ int mainFrame::CLIwordInit()		//命令行版初始化界面
 		if (exitflag == true)
 		{
 			outputBlank(12);
-			cout << setw(50) << "じゃよね！" << setw(20);
+			cout << setw(50) << "谢谢HitomiSAMA的使用！" << setw(20);
 			outputBlank(12);
 			return EXIT_SUCCESS;
 		}
 //		famousMotto();
 		cout << "*******************************欢迎进入wordKiller*******************************" << endl;
 		cout << "****                                                                       ****" << endl;
-		cout << "****                           1.添加新奇怪的东西                          ****" << endl;
-		cout << "****                           2.显示所有奇怪的东西                        ****" << endl;
-		cout << "****                           3.显示已斩奇怪的东西                        ****" << endl;
-		cout << "****                           4.复活已斩奇怪的东西                        ****" << endl;
-		cout << "****                           5.试练！                                    ****" << endl;
+		cout << "****                           1.录入新单词                                ****" << endl;
+		cout << "****                           2.显示词典                                  ****" << endl;
+		cout << "****                           3.显示已斩单词                              ****" << endl;
+		cout << "****                           4.恢复已斩单词                              ****" << endl;
+		cout << "****                           5.背单词                                    ****" << endl;
 		cout << "****                           6.呵呵哒模式                                ****" << endl;
-		cout << "****                           7.定制奇怪的东西                            ****" << endl;
-		cout << "****                           8.删除奇怪的东西                            ****" << endl;
-		cout << "****                           9.观赏奇怪的东西的迷之残骸                  ****" << endl;
-		cout << "****                           0.匿了匿了                                  ****" << endl;
+		cout << "****                           7.修改单词                                  ****" << endl;
+		cout << "****                           8.删除单词                                  ****" << endl;
+		cout << "****                           9.复习错词                                  ****" << endl;
+		cout << "****                           0.退出软件                                  ****" << endl;
 		outputBlank(1);
 		if (initFlag == true)
 		{
@@ -105,17 +105,17 @@ int mainFrame::CLIwordInit()		//命令行版初始化界面
 	}
 }
 
-void mainFrame::wordInput()	//录入新奇怪的东西
+void mainFrame::wordInput()	//录入新单词
 {
 	string curEnglish = "!";
 	string curChinese;
 
 	system("cls");
-	cout << "****                           1.添加新奇怪的东西                          ****" << endl;
+	cout << "****                           1.录入新单词                                ****" << endl;
 	outputBlank(2);
 	while (curEnglish != "#")
 	{
-		cout << "请输入奇怪的东西的魔法名（英文拼写），按#退出：      ";
+		cout << "请输入HitomiSAMA想要录入的英文单词，按#退出：      ";
 		cin >> curEnglish;
 		if (curEnglish == "#")
 		{
@@ -123,22 +123,22 @@ void mainFrame::wordInput()	//录入新奇怪的东西
 		}
 		if (dataBase.searchWord(curEnglish) >= 0)	//存在
 		{
-			/*提示奇怪的东西已存在，不需要添加,返回*/
-			cout << "奇怪的东西已存在，并不需要再次添加。" << endl;
+			/*提示单词已存在，不需要添加,返回*/
+			cout << "单词已存在，并不需要再次添加。" << endl;
 		}
 		else
 		{
-			/*输出提示信息，并且输入 中文奇怪的东西*/
-			cout << "请输入它的真名！（中文名）：      ";
+			/*输出提示信息，并且输入 中文单词*/
+			cout << "请输入汉语释意：      ";
 			cin >> curChinese;
 			int flag = 0;
-			cout << "HitomiSAMA要添加的奇怪的东西为: " << curEnglish << "， 它的真名为： " << curChinese << "确认添加本奇怪的东西吗？(1就是它了0再想想)" << endl;
+			cout << "HitomiSAMA要录入的单词为: " << curEnglish << "， 它的解释为： " << curChinese << "确认录入本单词吗？(1确认0再想想)" << endl;
 			cin >> flag;
 			if (flag == 1)
 			{
 				wordList BUFFER(curEnglish, curChinese, 0);
 				dataBase.addWord(BUFFER);
-				cout << "添加完毕，HitomiSAMA添加的奇怪的东西为: " << curEnglish << "， 它的真名为： " << curChinese << endl;
+				cout << "录入完毕，HitomiSAMA录入的单词为: " << curEnglish << "， 它的解释为： " << curChinese << endl;
 			}
 			else if (flag == 0)
 			{
@@ -146,7 +146,7 @@ void mainFrame::wordInput()	//录入新奇怪的东西
 			}
 			else
 			{
-				cout << "HitomiSAMA填写的信息有误！好笨！" << endl;
+				cout << "HitomiSAMA输入的信息有误！" << endl;
 			}
 		}
 	}
@@ -155,11 +155,11 @@ void mainFrame::wordInput()	//录入新奇怪的东西
 void mainFrame::wordShow()	//显示词典信息
 {
 	int LEN = dataBase.wordSize();
-	/*输出提示信息：查看完奇怪的东西表后请关闭*/
+	/*输出提示信息：查看完单词表后请关闭*/
 	system("cls");
-	cout << "****                           2.显示所有奇怪的东西                        ****" << endl;
+	cout << "****                           2.显示词典                                  ****" << endl;
 	outputBlank(2);
-	cout << "世界上一共有 " << dataBase.wordSize() << "个奇怪的东西。" << endl;
+	cout << "HitomiSAMA的词典里一共有 " << dataBase.wordSize() << "个单词。" << endl;
 	for (int i = 0; i < LEN; i++)
 	{
 		wordList BUFFER;
@@ -173,26 +173,26 @@ void mainFrame::wordShow()	//显示词典信息
 	getchar();
 }
 
-void mainFrame::sortWord()	//奇怪的东西排序
+void mainFrame::sortWord()	//单词排序
 {
 	dataBase.sortWord();
 }
 
-void mainFrame::wordChange()	//修改奇怪的东西
+void mainFrame::wordChange()	//修改单词
 {
 	int Num;
 	int flag = 1;
 	string curEnglish = "!";
 	string curChinese;
 	system("cls");
-	cout << "****                           7.定制奇怪的东西                            ****" << endl;
+	cout << "****                           7.修改单词                                  ****" << endl;
 	outputBlank(2);
 	while (curEnglish != "#")
 	{
 		if (dataBase.wordIsEmpty())
 		{
 			bool ADD;
-			cout << endl << "HitomiSAMA还没有添加任何奇怪的东西!是否要添加奇怪的东西(1加一个/0算了)？" << endl;
+			cout << endl << "HitomiSAMA还没有添加任何单词，是否要添加单词(1添加/0不添加)？" << endl;
 			cin >> ADD;
 			fflush(stdin);
 			if (ADD)
@@ -207,19 +207,19 @@ void mainFrame::wordChange()	//修改奇怪的东西
 		}
 		while (flag == 1 || curEnglish != "#")
 		{
-			cout << "请HitomiSAMA写入想要定制的奇怪的东西的魔法名（英文拼写）!输入#退出：      ";		//词库太大，不提供序号修改服务
+			cout << "请输入HitomiSAMA想要修改的单词的拼写，输入#退出：      ";		//词库太大，不提供序号修改服务
 			cin >> curEnglish;
 			fflush(stdin);	//清空缓冲区
 			if (dataBase.searchWord(curEnglish) < 0)
 			{
-				/*提示奇怪的东西不存在，输入错误，返回*/
-				cout << "此奇怪的东西并不存在，请重试。" << endl;
+				/*提示单词不存在，输入错误，返回*/
+				cout << "此单词并不能存在，请重试。" << endl;
 			}
 			else
 			{
 				Num = dataBase.searchWord(curEnglish);
-				cout << "此奇怪的东西的着宁为： " << dataBase.getChinese(Num) << endl;
-				cout << "想要改个名么？：      想！我想叫它";
+				cout << "此单词的中文解释为： " << dataBase.getChinese(Num) << endl;
+				cout << "请输入HitomiSAMA想要修改单词对应的中文解释：      ";
 				cin >> curChinese;
 				fflush(stdin);
 				wordList BUFFER(curEnglish, curChinese, dataBase.getWordWrongTime(Num));	/*写*/
@@ -234,17 +234,17 @@ void mainFrame::wordChange()	//修改奇怪的东西
 	}
 }
 
-void mainFrame::wordDelete()	//删除奇怪的东西
+void mainFrame::wordDelete()	//删除单词
 {
 	system("cls");
 	string curEnglish = "!";
 	string curChinese;
 	int Num;
-	cout << "****                           8.删除奇怪的东西                            ****" << endl;
+	cout << "****                           8.删除单词                                  ****" << endl;
 	outputBlank(2);
 	while (curEnglish != "#")
 	{
-		cout << "请输入HitomiSAMA想删除的奇怪的东西的魔法名（英文拼写）！输入#退出：      ";
+		cout << "请输入HitomiSAMA想删除的单词的英文，输入#退出：      ";
 		cin >> curEnglish;
 		if (curEnglish == "#")
 		{
@@ -252,7 +252,7 @@ void mainFrame::wordDelete()	//删除奇怪的东西
 		}
 		if (dataBase.searchWord(curEnglish) < 0)	//不存在
 		{
-			cout << "HitomiSAMA选的奇怪的东西并不存在，请重新选择！ " << endl;
+			cout << "HitomiSAMA选的单词并不存在，请重新选择！ " << endl;
 		}
 		else
 		{
@@ -264,7 +264,7 @@ void mainFrame::wordDelete()	//删除奇怪的东西
 			{
 				Num = dataBase.searchWord(curEnglish) + 1;
 				dataBase.removeWord(Num);
-				cout << "删除成功！HitomiSAMA再也见不到它了！" << endl;
+				cout << "删除成功！HitomiSAMA再也见不到它了" << endl;
 			}
 			else
 			{
@@ -274,12 +274,12 @@ void mainFrame::wordDelete()	//删除奇怪的东西
 	}
 }
 
-void mainFrame::wordExercise()	//背奇怪的东西
+void mainFrame::wordExercise()	//背单词
 {
 	system("cls");
-	cout << "****                           5.试练！                                    ****" << endl;
+	cout << "****                           5.背单词                                    ****" << endl;
 	random_device rd;
-	uniform_int_distribution<int> dicSeed(0, dataBase.wordSize() - 1);	//生成从词典取奇怪的东西的随机数的种子
+	uniform_int_distribution<int> dicSeed(0, dataBase.wordSize() - 1);	//生成从词典取单词的随机数的种子
 	dicSeed(rd);
 	vector<wordList> answers;
 	int flag = 1;
@@ -290,7 +290,7 @@ void mainFrame::wordExercise()	//背奇怪的东西
 			return ;
 		}
 		int TIME;
-		cout << "现在有" << dataBase.wordSize() << "个奇怪的东西，HitomiSAMA想练几个？      这个数——";
+		cout << "HitomiSAMA的词典里有" << dataBase.wordSize() << "个单词，HitomiSAMA想背几个单词？      ";
 		cin >> TIME;
 		fflush(stdin);
 		for (int i = 0; i < TIME; i++)
@@ -301,7 +301,7 @@ void mainFrame::wordExercise()	//背奇怪的东西
 			cout << "Round " << i+1 <<":  " <<  answers[i].getEnglish() << setw(10) << answers[i].getChinese() << endl;
 			wordKiller(chosen);	//斩词功能
 		}
-		cout << endl << "不尽兴？还要再来一发吗？(1来一发/0虚了虚了)      ";
+		cout << endl << "不尽兴？还要再来一发吗？(1来一发/0不用了)      ";
 		cin >> flag;
 	}
 }
@@ -311,19 +311,19 @@ void mainFrame::wordExam()	//呵呵哒模式
 	system("cls");
 	cout << "****                           6.呵呵哒模式                                ****" << endl;
 	random_device rd;	//种子
-	uniform_int_distribution<int> dicSeed(0, dataBase.wordSize() - 1);	//生成从词典取奇怪的东西的随机数的种子
+	uniform_int_distribution<int> dicSeed(0, dataBase.wordSize() - 1);	//生成从词典取单词的随机数的种子
 	uniform_int_distribution<int> ansSeed(0, 3);						//生成四个数中的一个作为答案的种子
 	uniform_int_distribution<int> exaSeed(0, 1);						//生成题目是汉译英还是英译汉的种子
 	dicSeed(rd);
 	wordList optAns[4];	//存储四个备选答案
-	wordList temp;		//用于存储错的奇怪的东西
+	wordList temp;		//用于存储错的单词
 	string answer;	//用来存放答案
 	int ansNum, chsNum;
 	int score = 0, count = 1;
-	int range;	//奇怪的东西数目
+	int range;	//单词数目
 	int exam;
 	double ratio;
-	cout << "欢迎进入\"呵呵哒\"模式，HitomiSAMA希望\"鉴赏\"几个奇怪的东西呢？      ";
+	cout << "欢迎进入\"呵呵哒\"模式，HitomiSAMA希望考几个单词呢？      ";
 	cin >> range;
 	//range = 5;	//test
 	cout << "Link start!" << endl << endl;
@@ -345,19 +345,19 @@ void mainFrame::wordExam()	//呵呵哒模式
 					cout << endl;
 				}
 			}
-			cout << "Round " << count++ << ": 请选择魔法名为\"" << optAns[ansNum].getChinese() << "\"的奇怪的东西。    ";
+			cout << "Round " << count++ << ": 请选择英文为\"" << optAns[ansNum].getChinese() << "\"的单词。    ";
 
 			cin >> chsNum;
 			chsNum--;	//匹配存放数字习惯
 			if (chsNum == ansNum)
 			{
 				score++;
-				cout << "HitomiSAMA好机智！" << endl;
+				cout << "HitomiSAMA答对了" << endl;
 			}
 			else
 			{
 				int wr = dataBase.searchWord(optAns[ansNum].getEnglish());	//记下错词在词典vector中的位置
-				cout << "弱爆了！！~等等！！你恼羞成怒抓了它！拿回去爽么？真是丧心病狂！" << endl;
+				cout << "对不起，HitomiSAMA答错了。" << endl;
 				dataBase.addWrongTimes(wr);
 				//cout << "+1" << endl;
 			}
@@ -377,19 +377,19 @@ void mainFrame::wordExam()	//呵呵哒模式
 					cout << endl;
 				}
 			}
-			cout << "Round " << count++ << ": 请选择魔法名为\"" << optAns[ansNum].getEnglish() << "\"的真名。    ";
+			cout << "Round " << count++ << ": 请选择中文为\"" << optAns[ansNum].getEnglish() << "\"的汉语。    ";
 
 			cin >> chsNum;
 			chsNum--;	//匹配存放数字习惯
 			if (chsNum == ansNum)
 			{
 				score++;
-				cout << "好机智！" << endl;
+				cout << "HitomiSAMA答对了" << endl;
 			}
 			else
 			{
 				int wr = dataBase.searchWord(optAns[ansNum].getEnglish());	//记下错词在词典vector中的位置
-				cout << "弱爆了！" << endl;
+				cout << "对不起，HitomiSAMA答错了。" << endl;
 				dataBase.addWrongTimes(wr);
 				//cout << "+1" << endl;
 			}
@@ -402,14 +402,14 @@ void mainFrame::wordExam()	//呵呵哒模式
 	getchar();
 }
 
-void mainFrame::killShow()	//显示已斩奇怪的东西
+void mainFrame::killShow()	//显示已斩单词
 {
 	system("cls");
-	cout << "****                           3.显示已斩奇怪的东西                              ****" << endl;
+	cout << "****                           3.显示已斩单词                              ****" << endl;
 	if (killedBase.wordSize() == 0)
 	{
 		int flag;
-		cout << endl << "HitomiSAMA还没有斩掉任何奇怪的东西！HitomiSAMA想斩个痛快吗？(1是/0否)      ";
+		cout << endl << "HitomiSAMA还没有斩任何单词！HitomiSAMA想斩个痛快吗？(1是/0否)      ";
 		cin >> flag;
 		if (flag)
 		{
@@ -421,7 +421,7 @@ void mainFrame::killShow()	//显示已斩奇怪的东西
 			return ;
 		}
 	}
-	cout << "HitomiSAMA一共斩了: " << killedBase.wordSize() << " 个奇怪的东西，请务必再接再厉！" << endl;
+	cout << "HitomiSAMA一共斩了: " << killedBase.wordSize() << " 个单词，请务必再接再厉！" << endl;
 //	system("notepad Data\\killed.dat");	//读取文件
 	for (int i = 0; i < killedBase.wordSize(); i++)
 	{
@@ -447,12 +447,12 @@ void mainFrame::wordKiller(int Num)		//斩词
 	}
 }
 
-void mainFrame::killedRescue()	//恢复已斩奇怪的东西
+void mainFrame::killedRescue()	//恢复已斩单词
 {
 	system("cls");
 	bool FLAG = true;
 	string temp = "!";
-	cout << "****                           4.复活已斩奇怪的东西                        ****" << endl;
+	cout << "****                           4.恢复已斩单词                              ****" << endl;
 	outputBlank(2);
 	while (temp != "#")
 	{
@@ -474,7 +474,7 @@ void mainFrame::killedRescue()	//恢复已斩奇怪的东西
 		}
 		if (FLAG)
 		{
-			cout << "HitomiSAMA一共斩了: " << killedBase.wordSize() << " 个奇怪的东西哦。" << endl;
+			cout << "HitomiSAMA一共斩了: " << killedBase.wordSize() << " 个单词。" << endl;
 			for (int i = 0; i < killedBase.wordSize(); i++)
 			{
 				wordList BUFFER;
@@ -485,7 +485,7 @@ void mainFrame::killedRescue()	//恢复已斩奇怪的东西
 		}
 		else
 		{
-			cout << "还剩下 " << killedBase.wordSize() << " 个奇怪的东西。" << endl;
+			cout << "还剩下 " << killedBase.wordSize() << " 个单词。" << endl;
 			for (int i = 0; i < killedBase.wordSize(); i++)
 			{
 				wordList BUFFER;
@@ -494,7 +494,7 @@ void mainFrame::killedRescue()	//恢复已斩奇怪的东西
 			}
 		}
 		outputBlank(2);
-		cout << "HitomiSAMA想要复活哪个奇怪的东西？写入它的魔法名(英文拼写)，（#退出复活功能）：" << endl;
+		cout << "请输入HitomiSAMA想恢复的单词的英文拼写，输入#退出恢复功能：" << endl;
 		cin >> temp;
 		if (temp == "#")
 		{
@@ -503,21 +503,20 @@ void mainFrame::killedRescue()	//恢复已斩奇怪的东西
 		int Num = killedBase.searchWord(temp);
 		if (Num == -1)
 		{
-			cerr << "没有找到该奇怪的东西！它可能没出现或者是还活着！（怕" << endl << endl;
+			cerr << "没有找到该单词！" << endl << endl;
 		}
 		else
 		{
 			wordList wtmp = killedBase.getWord(Num);
-			killedBase.removeWord(Num + 1);	//删掉已斩词中的奇怪的东西
+			killedBase.removeWord(Num + 1);	//删掉已斩词中的单词
 			dataBase.addWord(wtmp);		//放回词典中
-			cout << "读条中........托您的福啊，它复活了" << endl;
 		}
 	}
 	fflush(stdin);
 	getchar();
 }
 
-void mainFrame::wordReview()	//复习奇怪的东西功能
+void mainFrame::wordReview()	//复习单词功能
 {
 	int fuck = 1;
 	bool flag = true;
@@ -529,12 +528,12 @@ void mainFrame::wordReview()	//复习奇怪的东西功能
 	int LEN = temp.size();
 	if (LEN == 0)
 	{
-		cout << "HitomiSAMA一个错词都没有！你一定是没有好好记奇怪的东西！快去背奇怪的东西！" << endl;
+		cout << "HitomiSAMA一个错词都没有！你一定是没有好好背单词！快去背单词！" << endl;
 		system("pause");
 		wordExam();
 		return;
 	}
-	cout << "HitomiSAMA一共爽过了 " << temp.size() << "个奇怪的东西，它们分别是：   " << endl;
+	cout << "在过去的日子里，HitomiSAMA一共错了 " << temp.size() << "个单词，它们分别是：   " << endl;
 	for (int i = LEN - 1; i >= 0; i--)
 	{
 		cout << temp[i].getEnglish() << "  \"" 
@@ -546,12 +545,12 @@ void mainFrame::wordReview()	//复习奇怪的东西功能
 	{
 		if (flag)
 		{
-			cout << "你又来？HitomiSAMA是不见棺材不落泪么？（提示：此挑战非同一般）(1怕你啊/0怂了)   ";
+			cout << "现在HitomiSAMA有一次挑战他们的机会，是否迎战？（提示：此类挑战非同一般）(1是/0否)   ";
 			flag = false;
 		}
 		else if (!flag && curEnglish != "#")
 		{
-			cout << "HitomiSAMA爽哉？再来一发么？(1是/0否)" << endl;
+			cout << "HitomiSAMA爽哉？是否再来一次？(1是/0否)" << endl;
 		}
 		else
 		{
@@ -567,10 +566,10 @@ void mainFrame::wordReview()	//复习奇怪的东西功能
 		{
 			system("cls");
 			random_device rd;	//种子
-			uniform_int_distribution<int> dicSeed(0, LEN - 1);	//生成从词典取奇怪的东西的随机数的种子
+			uniform_int_distribution<int> dicSeed(0, LEN - 1);	//生成从词典取单词的随机数的种子
 			dicSeed(rd);
 			int rdm;
-			cout << "哦哟好屌哦，来战20个回合！（弱弱地：想撤退的话可以使用\"#\"" << endl << endl;
+			cout << "HitomiSAMA好爽快！来战20个回合！想撤退的话可以使用\"#\"" << endl;
 			for (int i = 0; i < 20; i++)
 			{
 				if (curEnglish == "#")
@@ -578,17 +577,17 @@ void mainFrame::wordReview()	//复习奇怪的东西功能
 					break;
 				}
 				rdm = dicSeed(rd);
-				cout << "Round " << i + 1 << ": 你知道什么是 \"" << temp[rdm].getChinese() << "\" 么？    \"知道啊，不就是";
+				cout << "Round " << i + 1 << ": 请写出意思为 \"" << temp[rdm].getChinese() << "\" 的单词的拼写：    ";
 				cin >> curEnglish;
 				fflush(stdin);
 				if (curEnglish != temp[rdm].getEnglish())
 				{
-					cout << "哈哈哈我就知道你会错！正确答案其实是" << temp[rdm].getEnglish() << "啦！喵桑都知道！" << endl << endl;
+					cout << "HitomiSAMA回答错了，正确答案应该是： " << temp[rdm].getEnglish() << endl;
 				}
 				else if (curEnglish == temp[rdm].getEnglish())
 				{
 					int choice;
-					cout << "我擦，竟然对了。放了它？（奇怪的东西菌：你真的要抛弃我么？……）(1放了吧/0留着)    ";
+					cout << "HitomiSAMA回答正确，是否把它放回（放回就不会出现在这里了！）？(1放了吧/0留着)    ";
 					cin >> choice;
 					if (choice == 1)
 					{

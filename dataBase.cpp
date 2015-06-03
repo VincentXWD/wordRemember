@@ -14,6 +14,7 @@ __DATABASE::__DATABASE()	/*³õÊ¼»¯²Ù×÷*/
 {
 	string enBuffer;
 	string cnBuffer;
+	int tmBuffer;
 
 	ifstream fileRead("Data/dictionary.dat");	//´ò¿ª´Êµä
 	if (!fileRead)
@@ -24,10 +25,12 @@ __DATABASE::__DATABASE()	/*³õÊ¼»¯²Ù×÷*/
 		exit(EXIT_FAILURE);
 	}
 	sortWord();
-	while (fileRead >> enBuffer >> cnBuffer)	//Ó²ÅÌÎÄ¼ş×ªÈëÄÚ´æ
+	while (fileRead >> enBuffer >> cnBuffer >> tmBuffer)	//Ó²ÅÌÎÄ¼ş×ªÈëÄÚ´æ
 	{
 		wordlist.changeChinese(cnBuffer);
 		wordlist.changeEnglish(enBuffer);
+		wordlist.changeWrongTimes(tmBuffer);
+
 		word.push_back(wordlist);				//ÈÓÈëÈİÆ÷ÖĞÒÔ±¸²Ù×÷
 	}
 	fileRead.close();
@@ -38,7 +41,9 @@ __DATABASE::~__DATABASE()						//±£´æ´Êµä
 	ofstream fileWrite("Data/dictionary.dat", ios::out);
 	for (int i = 0; i < wordSize(); i++)
 	{
-		fileWrite << word[i].getEnglish() << " " << word[i].getChinese() << endl;
+		fileWrite << word[i].getEnglish() << " " 
+				  << word[i].getChinese() << " " 
+				  << word[i].getWrongTimes() << endl;
 	}
 	fileWrite.close();
 }
@@ -126,6 +131,50 @@ bool DATABASE::changeWordNum(int num, wordList curwordlist)				//°´ĞòºÅ¶ÔÓ¦µ¥´Ê²
 	return CHANGESUCCESS;
 }
 
+int DATABASE::getWordWrongTime(int num)	//»ñÈ¡¸Ã´Ê´í´ÎÊı
+{
+	return word[num].getWrongTimes();
+}
+
+string DATABASE::getChinese(int num)	//»ñÈ¡ÖĞÎÄ·­Òë
+{
+	return word[num].getChinese();
+}
+
+
+void DATABASE::addWrongTimes(int num)
+{
+	word[num].addWrongTimes();
+}
+
+vector<__WORDLIST> DATABASE::getWrongWords()	//»ñÈ¡´í´ÊĞÅÏ¢
+{
+	vector<__WORDLIST> wrongWords;
+	int LEN = wordSize();
+	for (int i = 0; i < LEN; i++)
+	{
+		if (word[i].getWrongTimes() != 0)
+		{
+			wrongWords.push_back(word[i]);
+		}
+	}
+	sort(begin(wrongWords), end(wrongWords), [](const wordList &a, const wordList &b)
+	{//sort±Õ°ü£¬°´ÕÕµ¥´ÊµÄ´íÎó´ÎÊı´ÓĞ¡µ½´óÅÅ³öÀ´
+		return a.getWrongTimes() < b.getWrongTimes();
+	});
+	return wrongWords;
+}
+
+int DATABASE::getWordNum(string curEnglish)				//»ñÈ¡µ¥´ÊĞòºÅ£¬ÓÃÓÚÍ³¼Æ´í´Ê
+{
+	return searchWord(curEnglish);
+}
+
+void DATABASE::rmFromWrong(string curEnglish)			//´Ó´í´Ê¿âÖĞÉ¾³ı
+{
+	int temp = searchWord(curEnglish);
+	word[temp].changeWrongTimes(0);
+}
 //bool DATABASE::changeWordWod(wordList tarwordlist, wordList curwordlist)//°´µ¥´Ê¶ÔÓ¦µ¥´Ê²¢ĞŞ¸Ä£¬·µ»ØÊÇ·ñ³É¹¦
 //{
 //	int LEN = wordSize() - 1;
