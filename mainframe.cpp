@@ -35,7 +35,7 @@ void mainFrame::aboutMe()		//关于作者
 {
 	system("cls");
 	outputBlank(10);
-	cout << "                  HitomiSAMA发现了彩蛋，Young man！" << endl;
+	cout << "                  您发现了彩蛋，Young man！" << endl;
 	outputBlank(10);
 	system("pause");
 }
@@ -51,7 +51,7 @@ int mainFrame::CLIwordInit()		//命令行版初始化界面
 		if (exitflag == true)
 		{
 			outputBlank(12);
-			cout << setw(50) << "谢谢HitomiSAMA的使用！" << setw(20);
+			cout << setw(50) << "谢谢您的使用！" << setw(20);
 			outputBlank(12);
 			return EXIT_SUCCESS;
 		}
@@ -72,11 +72,11 @@ int mainFrame::CLIwordInit()		//命令行版初始化界面
 		outputBlank(1);
 		if (initFlag == true)
 		{
-			cout << "请选择HitomiSAMA想要使用的功能：     ";
+			cout << "请选择您想要使用的功能：     ";
 		}
 		else
 		{
-			cout << "HitomiSAMA的输入有误，请重试！" << endl;
+			cout << "您的输入有误，请重试！" << endl;
 		}
 		cin >> choice;
 		if (choice == 12345 || (choice >= 0 && choice <= 10))
@@ -115,7 +115,7 @@ void mainFrame::wordLooking()//查询单词
 	outputBlank(2);
 	while (curEnglish != "#")
 	{
-		cout << "请输入HitomiSAMA想要查询的单词的拼写，输入\"#\"退出查询功能：    ";
+		cout << "请输入您想要查询的单词的拼写，输入\"#\"退出查询功能：    ";
 		cin >> curEnglish;
 		fflush(stdin);
 		int wd = dataBase.searchWord(curEnglish);
@@ -139,7 +139,7 @@ void mainFrame::wordInput()	//录入新单词
 	outputBlank(2);
 	while (curEnglish != "#")
 	{
-		cout << "请输入HitomiSAMA想要录入的英文单词，按#退出：      ";
+		cout << "请输入您想要录入的英文单词，按#退出：      ";
 		cin >> curEnglish;
 		if (curEnglish == "#")
 		{
@@ -156,13 +156,13 @@ void mainFrame::wordInput()	//录入新单词
 			cout << "请输入汉语释意：      ";
 			cin >> curChinese;
 			int flag = 0;
-			cout << "HitomiSAMA要录入的单词为: " << curEnglish << "， 它的解释为： " << curChinese << "确认录入本单词吗？(1确认0再想想)" << endl;
+			cout << "您要录入的单词为: " << curEnglish << "， 它的解释为： " << curChinese << "确认录入本单词吗？(1确认0再想想)" << endl;
 			cin >> flag;
 			if (flag == 1)
 			{
 				wordList BUFFER(curEnglish, curChinese, 0);
 				dataBase.addWord(BUFFER);
-				cout << "录入完毕，HitomiSAMA录入的单词为: " << curEnglish << "， 它的解释为： " << curChinese << endl;
+				cout << "录入完毕，您录入的单词为: " << curEnglish << "， 它的解释为： " << curChinese << endl;
 			}
 			else if (flag == 0)
 			{
@@ -170,7 +170,7 @@ void mainFrame::wordInput()	//录入新单词
 			}
 			else
 			{
-				cout << "HitomiSAMA输入的信息有误！" << endl;
+				cout << "您输入的信息有误！" << endl;
 			}
 		}
 	}
@@ -183,7 +183,7 @@ void mainFrame::wordShow()	//显示词典信息
 	system("cls");
 	cout << "****                           2.显示词典                                  ****" << endl;
 	outputBlank(2);
-	cout << "HitomiSAMA的词典里一共有 " << dataBase.wordSize() << "个单词。" << endl;
+	cout << "您的词典里一共有 " << dataBase.wordSize() << "个单词。" << endl;
 	for (int i = 0; i < LEN; i++)
 	{
 		wordList BUFFER;
@@ -216,7 +216,7 @@ void mainFrame::wordChange()	//修改单词
 		if (dataBase.wordIsEmpty())
 		{
 			bool ADD;
-			cout << endl << "HitomiSAMA还没有添加任何单词，是否要添加单词(1添加/0不添加)？" << endl;
+			cout << endl << "您还没有添加任何单词，是否要添加单词(1添加/0不添加)？" << endl;
 			cin >> ADD;
 			fflush(stdin);
 			if (ADD)
@@ -231,7 +231,7 @@ void mainFrame::wordChange()	//修改单词
 		}
 		while (flag == 1 || curEnglish != "#")
 		{
-			cout << "请输入HitomiSAMA想要修改的单词的拼写，输入#退出：      ";		//词库太大，不提供序号修改服务
+			cout << "请输入您想要修改的单词的拼写，输入#退出：      ";		//词库太大，不提供序号修改服务
 			cin >> curEnglish;
 			fflush(stdin);	//清空缓冲区
 			if (dataBase.searchWord(curEnglish) < 0)
@@ -243,7 +243,7 @@ void mainFrame::wordChange()	//修改单词
 			{
 				Num = dataBase.searchWord(curEnglish);
 				cout << "此单词的中文解释为： " << dataBase.getChinese(Num) << endl;
-				cout << "请输入HitomiSAMA想要修改单词对应的中文解释：      ";
+				cout << "请输入您想要修改单词对应的中文解释：      ";
 				cin >> curChinese;
 				fflush(stdin);
 				wordList BUFFER(curEnglish, curChinese, dataBase.getWordWrongTime(Num));	/*写*/
@@ -268,7 +268,7 @@ void mainFrame::wordDelete()	//删除单词
 	outputBlank(2);
 	while (curEnglish != "#")
 	{
-		cout << "请输入HitomiSAMA想删除的单词的英文，输入#退出：      ";
+		cout << "请输入您想删除的单词的英文，输入#退出：      ";
 		cin >> curEnglish;
 		if (curEnglish == "#")
 		{
@@ -276,7 +276,7 @@ void mainFrame::wordDelete()	//删除单词
 		}
 		if (dataBase.searchWord(curEnglish) < 0)	//不存在
 		{
-			cout << "HitomiSAMA选的单词并不存在，请重新选择！ " << endl;
+			cout << "您选的单词并不存在，请重新选择！ " << endl;
 		}
 		else
 		{
@@ -288,7 +288,7 @@ void mainFrame::wordDelete()	//删除单词
 			{
 				Num = dataBase.searchWord(curEnglish) + 1;
 				dataBase.removeWord(Num);
-				cout << "删除成功！HitomiSAMA再也见不到它了" << endl;
+				cout << "删除成功！您再也见不到它了" << endl;
 			}
 			else
 			{
@@ -314,7 +314,7 @@ void mainFrame::wordExercise()	//背单词
 			return;
 		}
 		int TIME;
-		cout << "HitomiSAMA的词典里有" << dataBase.wordSize() << "个单词，HitomiSAMA想背几个单词？      ";
+		cout << "您的词典里有" << dataBase.wordSize() << "个单词，您想背几个单词？      ";
 		cin >> TIME;
 		fflush(stdin);
 		for (int i = 0; i < TIME; i++)
@@ -347,7 +347,7 @@ void mainFrame::wordExam()	//呵呵哒模式
 	int range;	//单词数目
 	int exam;
 	double ratio;
-	cout << "欢迎进入\"呵呵哒\"模式，HitomiSAMA希望考几个单词呢？      ";
+	cout << "欢迎进入\"呵呵哒\"模式，您希望考几个单词呢？      ";
 	cin >> range;
 	//range = 5;	//test
 	cout << "Link start!" << endl << endl;
@@ -376,12 +376,12 @@ void mainFrame::wordExam()	//呵呵哒模式
 			if (chsNum == ansNum)
 			{
 				score++;
-				cout << "HitomiSAMA答对了" << endl;
+				cout << "您答对了" << endl;
 			}
 			else
 			{
 				int wr = dataBase.searchWord(optAns[ansNum].getEnglish());	//记下错词在词典vector中的位置
-				cout << "对不起，HitomiSAMA答错了。" << endl;
+				cout << "对不起，您答错了。" << endl;
 				dataBase.addWrongTimes(wr);
 				//cout << "+1" << endl;
 			}
@@ -408,19 +408,19 @@ void mainFrame::wordExam()	//呵呵哒模式
 			if (chsNum == ansNum)
 			{
 				score++;
-				cout << "HitomiSAMA答对了" << endl;
+				cout << "您答对了" << endl;
 			}
 			else
 			{
 				int wr = dataBase.searchWord(optAns[ansNum].getEnglish());	//记下错词在词典vector中的位置
-				cout << "对不起，HitomiSAMA答错了。" << endl;
+				cout << "对不起，您答错了。" << endl;
 				dataBase.addWrongTimes(wr);
 				//cout << "+1" << endl;
 			}
 		}
 	}
 	ratio = double(score) / double(range);
-	cout << "Stop，HitomiSAMA一共得了 " << score << "分" << "正确率为 " << ratio * 100 << "%，请再接再厉！" << endl;
+	cout << "Stop，您一共得了 " << score << "分" << "正确率为 " << ratio * 100 << "%，请再接再厉！" << endl;
 	cout << endl << "按任意键退出。" << endl;
 	fflush(stdin);
 	getchar();
@@ -433,7 +433,7 @@ void mainFrame::killShow()	//显示已斩单词
 	if (killedBase.wordSize() == 0)
 	{
 		int flag;
-		cout << endl << "HitomiSAMA还没有斩任何单词！HitomiSAMA想斩个痛快吗？(1是/0否)      ";
+		cout << endl << "您还没有斩任何单词！您想斩个痛快吗？(1是/0否)      ";
 		cin >> flag;
 		if (flag)
 		{
@@ -445,7 +445,7 @@ void mainFrame::killShow()	//显示已斩单词
 			return;
 		}
 	}
-	cout << "HitomiSAMA一共斩了: " << killedBase.wordSize() << " 个单词，请务必再接再厉！" << endl;
+	cout << "您一共斩了: " << killedBase.wordSize() << " 个单词，请务必再接再厉！" << endl;
 	//	system("notepad Data\\killed.dat");	//读取文件
 	for (int i = 0; i < killedBase.wordSize(); i++)
 	{
@@ -483,7 +483,7 @@ void mainFrame::killedRescue()	//恢复已斩单词
 		if (killedBase.wordIsEmpty())
 		{
 			int goKill;
-			cout << "HitomiSAMA的斩杀名单是空的！想斩个痛快吗？(1去/0不去)    ";
+			cout << "您的斩杀名单是空的！想斩个痛快吗？(1去/0不去)    ";
 			cin >> goKill;
 			fflush(stdin);
 			if (goKill)
@@ -498,7 +498,7 @@ void mainFrame::killedRescue()	//恢复已斩单词
 		}
 		if (FLAG)
 		{
-			cout << "HitomiSAMA一共斩了: " << killedBase.wordSize() << " 个单词。" << endl;
+			cout << "您一共斩了: " << killedBase.wordSize() << " 个单词。" << endl;
 			for (int i = 0; i < killedBase.wordSize(); i++)
 			{
 				wordList BUFFER;
@@ -518,7 +518,7 @@ void mainFrame::killedRescue()	//恢复已斩单词
 			}
 		}
 		outputBlank(2);
-		cout << "请输入HitomiSAMA想恢复的单词的英文拼写，输入#退出恢复功能：" << endl;
+		cout << "请输入您想恢复的单词的英文拼写，输入#退出恢复功能：" << endl;
 		cin >> temp;
 		if (temp == "#")
 		{
@@ -552,12 +552,12 @@ void mainFrame::wordReview()	//复习单词功能
 	int LEN = temp.size();
 	if (LEN == 0)
 	{
-		cout << "HitomiSAMA一个错词都没有！你一定是没有好好背单词！快去背单词！" << endl;
+		cout << "您一个错词都没有！你一定是没有好好背单词！快去背单词！" << endl;
 		system("pause");
 		wordExam();
 		return;
 	}
-	cout << "在过去的日子里，HitomiSAMA一共错了 " << temp.size() << "个单词，它们分别是：   " << endl;
+	cout << "在过去的日子里，您一共错了 " << temp.size() << "个单词，它们分别是：   " << endl;
 	for (int i = LEN - 1; i >= 0; i--)
 	{
 		cout << temp[i].getEnglish() << "  \""
@@ -569,17 +569,17 @@ void mainFrame::wordReview()	//复习单词功能
 	{
 		if (flag)
 		{
-			cout << "现在HitomiSAMA有一次挑战他们的机会，是否迎战？（提示：此类挑战非同一般）(1是/0否)   ";
+			cout << "现在您有一次挑战他们的机会，是否迎战？（提示：此类挑战非同一般）(1是/0否)   ";
 			flag = false;
 		}
 		else if (!flag && curEnglish != "#")
 		{
-			cout << "HitomiSAMA爽哉？是否再来一次？(1是/0否)" << endl;
+			cout << "您爽哉？是否再来一次？(1是/0否)" << endl;
 		}
 		else
 		{
 			outputBlank(5);
-			cout << "*******************HitomiSAMA真怂！*******************" << endl;
+			cout << "*******************您真怂！*******************" << endl;
 			outputBlank(5);
 			fflush(stdin);
 			system("pause");
@@ -593,7 +593,7 @@ void mainFrame::wordReview()	//复习单词功能
 			uniform_int_distribution<int> dicSeed(0, LEN - 1);	//生成从词典取单词的随机数的种子
 			dicSeed(rd);
 			int rdm;
-			cout << "HitomiSAMA好爽快！来战20个回合！想撤退的话可以使用\"#\"" << endl;
+			cout << "您好爽快！来战20个回合！想撤退的话可以使用\"#\"" << endl;
 			for (int i = 0; i < 20; i++)
 			{
 				if (curEnglish == "#")
@@ -606,12 +606,12 @@ void mainFrame::wordReview()	//复习单词功能
 				fflush(stdin);
 				if (curEnglish != temp[rdm].getEnglish())
 				{
-					cout << "HitomiSAMA回答错了，正确答案应该是： " << temp[rdm].getEnglish() << endl;
+					cout << "您回答错了，正确答案应该是： " << temp[rdm].getEnglish() << endl;
 				}
 				else if (curEnglish == temp[rdm].getEnglish())
 				{
 					int choice;
-					cout << "HitomiSAMA回答正确，是否把它放回（放回就不会出现在这里了！）？(1放了吧/0留着)    ";
+					cout << "您回答正确，是否把它放回（放回就不会出现在这里了！）？(1放了吧/0留着)    ";
 					cin >> choice;
 					if (choice == 1)
 					{
@@ -620,7 +620,7 @@ void mainFrame::wordReview()	//复习单词功能
 					}
 					if (LEN == 0)
 					{
-						cout << "HitomiSAMA没有任何错词了唷~" << endl;
+						cout << "您没有任何错词了唷~" << endl;
 						system("pause");
 						return ;
 					}
