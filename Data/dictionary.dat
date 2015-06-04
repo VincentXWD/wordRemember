@@ -1,6 +1,5 @@
 Christmas 圣诞 0
 English 英语 0
-false 假 0
 I 我 0
 TRUE 真 0
 a 字母a 0
@@ -134,6 +133,7 @@ awake 清醒 0
 away 离去 0
 awkward 尴尬 0
 axe 斧 0
+baba 爸爸 0
 baby 婴儿 0
 backward 落后 0
 bad 糟糕的 0
@@ -649,6 +649,7 @@ faint 微弱 0
 fair 公平的 0
 faith 信念 0
 fall 秋天 0
+false 假 0
 fame 名声 0
 familiar 熟悉 0
 family 家庭 0
@@ -1453,7 +1454,7 @@ roast 烤 0
 rob 抢劫 0
 rock 岩石 0
 roll 卷 0
-roof 屋顶 0
+roof 屋顶 1
 room 房间 0
 root 根 0
 rope 绳 0
@@ -1473,7 +1474,6 @@ sacred 神圣 0
 sacrifice 牺牲 0
 sad 悲哀的 0
 saddle 鞍 0
-safe 安全 0
 safety 安全 0
 sail 帆 0
 sake 酒 0

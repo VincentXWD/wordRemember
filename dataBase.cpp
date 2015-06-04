@@ -159,7 +159,7 @@ vector<__WORDLIST> DATABASE::getWrongWords()	//获取错词信息
 		}
 	}
 	sort(begin(wrongWords), end(wrongWords), [](const wordList &a, const wordList &b)
-	{//sort闭包，按照单词的错误次数从小到大排出来
+	{
 		return a.getWrongTimes() < b.getWrongTimes();
 	});
 	return wrongWords;

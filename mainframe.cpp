@@ -107,6 +107,7 @@ int mainFrame::CLIwordInit()		//命令行版初始化界面
 		system("cls");
 	}
 }
+
 void mainFrame::wordLooking()//查询单词
 {
 	system("cls");
@@ -129,6 +130,7 @@ void mainFrame::wordLooking()//查询单词
 		}
 	}
 }
+
 void mainFrame::wordInput()	//录入新单词
 {
 	string curEnglish = "!";
@@ -234,10 +236,14 @@ void mainFrame::wordChange()	//修改单词
 			cout << "请输入您想要修改的单词的拼写，输入#退出：      ";		//词库太大，不提供序号修改服务
 			cin >> curEnglish;
 			fflush(stdin);	//清空缓冲区
+			if (curEnglish == "#")
+			{
+				return ;
+			}
 			if (dataBase.searchWord(curEnglish) < 0)
 			{
 				/*提示单词不存在，输入错误，返回*/
-				cout << "此单词并不能存在，请重试。" << endl;
+				cout << "此单词并不能存在，请重试。 " << endl;
 			}
 			else
 			{
@@ -248,7 +254,7 @@ void mainFrame::wordChange()	//修改单词
 				fflush(stdin);
 				wordList BUFFER(curEnglish, curChinese, dataBase.getWordWrongTime(Num));	/*写*/
 				dataBase.changeWordNum(Num, BUFFER);
-				cout << "修改成功！ 是否继续修改（1是/0否）？    ";
+				cout << "修改成功！ 是否继续修改（1是/0否）？     ";
 				cin >> flag;
 			}
 		}
@@ -518,7 +524,7 @@ void mainFrame::killedRescue()	//恢复已斩单词
 			}
 		}
 		outputBlank(2);
-		cout << "请输入您想恢复的单词的英文拼写，输入#退出恢复功能：" << endl;
+		cout << "请输入您想恢复的单词的英文拼写，输入#退出恢复功能：     ";
 		cin >> temp;
 		if (temp == "#")
 		{
@@ -552,7 +558,7 @@ void mainFrame::wordReview()	//复习单词功能
 	int LEN = temp.size();
 	if (LEN == 0)
 	{
-		cout << "您一个错词都没有！你一定是没有好好背单词！快去背单词！" << endl;
+		cout << "一个错词都没有！你一定是没有好好背单词！快去背单词！" << endl << endl;
 		system("pause");
 		wordExam();
 		return;
@@ -562,7 +568,7 @@ void mainFrame::wordReview()	//复习单词功能
 	{
 		cout << temp[i].getEnglish() << "  \""
 			<< temp[i].getChinese() << "\"  "
-			<< "错了 " << temp[i].getWrongTimes() << "次。" << endl;
+			<< "错了 "	 << temp[i].getWrongTimes() << "次。" << endl;
 	}
 	outputBlank(5);
 	while (fuck == 1)
@@ -574,12 +580,12 @@ void mainFrame::wordReview()	//复习单词功能
 		}
 		else if (!flag && curEnglish != "#")
 		{
-			cout << "您爽哉？是否再来一次？(1是/0否)" << endl;
+			cout << "爽哉？是否再来一次？(1是/0否)" << endl;
 		}
 		else
 		{
 			outputBlank(5);
-			cout << "*******************您真怂！*******************" << endl;
+			cout << "*******************真怂！*******************" << endl;
 			outputBlank(5);
 			fflush(stdin);
 			system("pause");
@@ -593,7 +599,7 @@ void mainFrame::wordReview()	//复习单词功能
 			uniform_int_distribution<int> dicSeed(0, LEN - 1);	//生成从词典取单词的随机数的种子
 			dicSeed(rd);
 			int rdm;
-			cout << "您好爽快！来战20个回合！想撤退的话可以使用\"#\"" << endl;
+			cout << "好爽快！来战20个回合！想撤退的话可以使用\"#\"" << endl;
 			for (int i = 0; i < 20; i++)
 			{
 				if (curEnglish == "#")
@@ -616,9 +622,9 @@ void mainFrame::wordReview()	//复习单词功能
 					if (choice == 1)
 					{
 						dataBase.rmFromWrong(curEnglish);
-						LEN--;
+						
 					}
-					if (LEN == 0)
+					if (dataBase.getWrongWords().size() == 0)
 					{
 						cout << "您没有任何错词了唷~" << endl;
 						system("pause");
@@ -635,3 +641,4 @@ void mainFrame::wordReview()	//复习单词功能
 	fflush(stdin);
 	getchar();
 }
+
