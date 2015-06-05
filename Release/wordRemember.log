@@ -1,4 +1,6 @@
-﻿  mainframe.cpp
-  正在生成代码
-  已完成代码的生成
-  wordRemember.vcxproj -> F:\wordRemember\Release\wordRemember.exe
+﻿  unitTest.cpp
+unitTest.cpp(13): error C2661: “std::vector<std::string,std::allocator<_Ty>>::vector”: 没有重载函数接受 6 个参数
+          with
+          [
+              _Ty=std::string
+          ]
