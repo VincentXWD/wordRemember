@@ -120,7 +120,7 @@ association 协会 0
 astonish 骇 0
 at 在 0
 attack 攻击 0
-attempt 尝试 0
+attempt 尝试 1
 attend 出席 0
 attention 注意 0
 attract 吸引 0
@@ -267,7 +267,7 @@ calm 平静 0
 camera 相机 0
 camp 营 0
 can 可以 0
-cap 帽 0
+cap 帽 1
 cape 角 0
 capital 资本 0
 captain 队长 0
@@ -397,7 +397,7 @@ could 可以 0
 council 理事会 0
 count 计数 0
 country 国家 0
-courage 勇气 0
+courage 勇气 1
 course 课程 0
 court 法院 0
 cousin 表兄弟姊妹 0
@@ -444,7 +444,7 @@ day 白天 0
 daylight 白天 0
 dead 死的 0
 deal 交易 0
-dear 亲爱的 0
+dear 亲爱的 1
 death 死亡 0
 debt 债务 0
 decay 衰变 0
@@ -488,7 +488,7 @@ develop 发展 0
 devil 魔鬼 0
 dictionary 字典 0
 die 死亡 0
-difference 差异 0
+difference 差异 1
 different 不同 0
 difficult 困难 0
 difficulty 困难 0
@@ -726,7 +726,7 @@ fortunate 幸运 0
 fortune 财富 0
 forward 转寄 0
 frame 结构 0
-free 自由的 0
+free 自由的 1
 freedom 自由 0
 freeze 冻结 0
 frequency 频率 0
@@ -983,7 +983,7 @@ light 光 0
 like 喜欢 0
 likely 可能 0
 limit 限制 0
-line 线 0
+line 线 1
 lip 唇 0
 liquid 液体 0
 list 列表 0
@@ -1020,7 +1020,7 @@ machine 机 0
 machinery 机械 0
 mad 疯狂的 0
 mail 邮件 0
-main 主要的 0
+main 主要的 1
 make 制造 0
 male 男性 0
 man 男人 0
@@ -1269,7 +1269,7 @@ pocket 口袋 0
 poem 诗 0
 poet 诗人 0
 point 点 0
-poison 毒药 0
+poison 毒药 1
 police 警察 0
 polish 波兰文 0
 polite 礼貌 0
@@ -1312,7 +1312,7 @@ pretend 假装 0
 pretty 漂亮的 0
 prevent 防止 0
 prevention 预防 0
-price 价格 0
+price 价格 1
 pride 骄傲的 0
 priest 牧师 0
 print 打印 0
@@ -1613,7 +1613,7 @@ soft 软 0
 soften 软化 0
 soil 土壤 0
 soldier 士兵 0
-solemn 庄严 0
+solemn 庄严 1
 solid 固体 0
 solution 解决方案 0
 solve 解决 0
@@ -1990,5 +1990,5 @@ yet 然而 0
 yield 生产 0
 you 您 0
 young 年轻的 0
-youth 青年 0
+youth 青年 1
 zero 零 0

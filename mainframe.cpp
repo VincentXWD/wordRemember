@@ -5,11 +5,13 @@
 #include <iostream>
 #include <cctype>
 
-using namespace std;
+__MAINFRAME::__MAINFRAME() 
+{
+}
 
-__MAINFRAME::__MAINFRAME() {}
-
-__MAINFRAME::~__MAINFRAME() {}
+__MAINFRAME::~__MAINFRAME() 
+{
+}
 
 void outputBlank(int n)					//输出回车，规划界面。
 {
@@ -500,6 +502,7 @@ void mainFrame::wordExercise()	//背单词
 		{
 			cout << endl << "不尽兴？还要再来一发吗？(1来一发/0不用了)      ";
 			cin >> flag;
+			vector<wordList>().swap(answers);
 		}
 		else
 		{
@@ -607,6 +610,7 @@ void mainFrame::wordExam()	//考试模式
 			cout << "Round " << count++ << ": 请选择英文为\"" << optAns[ansNum].getChinese() << "\"的单词。    ";
 
 			scanf_s("%d", &chsNum);
+			chsNum--;
 			if (chsNum == ansNum)
 			{
 				score++;
