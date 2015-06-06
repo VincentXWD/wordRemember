@@ -21,6 +21,6 @@ int main()
 	ofstream fileWrite("data.dat", ios::out);
 	for(int i = 0; i < cn.size(); i++)
 	{
-		fileWrite << en[i] << " " << cn[i] << " " << 0 << endl;	//初始化词典
+		fileWrite << en[i] << endl << cn[i] << endl << 0 << endl;	//初始化词典
 	}
 }

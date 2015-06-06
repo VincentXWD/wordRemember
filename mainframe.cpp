@@ -44,6 +44,7 @@ void mainFrame::aboutMe()		//关于作者
 	system("cls");
 	outputBlank(10);
 	cout << "                  您发现了彩蛋，Young man！" << endl;
+	system("Data\\egg.exe");
 	outputBlank(10);
 	system("pause");
 }
@@ -491,7 +492,7 @@ void mainFrame::wordExercise()	//背单词
 				int chosen = dicSeed(rd);
 				wordList word = dataBase.getWord(chosen);
 				answers.push_back(word);
-				cout << "Round " << i + 1 << ":  " << answers[i].getEnglish() << setw(10) << answers[i].getChinese() << endl;
+				cout << "Round " << i + 1 << ":  " << answers[i].getEnglish() << "   " << answers[i].getChinese() << endl;
 				if (wordKiller(chosen) == 1)	//斩词功能
 				{
 					return;
