@@ -4,6 +4,7 @@
 #include <iomanip>
 #include <iostream>
 #include <cctype>
+
 using namespace std;
 
 __MAINFRAME::__MAINFRAME() {}
@@ -71,7 +72,7 @@ int mainFrame::CLIwordInit()		//命令行版初始化界面
 		cout << "****                           3.显示已斩单词                              ****" << endl;
 		cout << "****                           4.恢复已斩单词                              ****" << endl;
 		cout << "****                           5.背单词                                    ****" << endl;
-		cout << "****                           6.呵呵哒模式                                ****" << endl;
+		cout << "****                           6.考试模式                                  ****" << endl;
 		cout << "****                           7.修改单词                                  ****" << endl;
 		cout << "****                           8.删除单词                                  ****" << endl;
 		cout << "****                           9.复习错词                                  ****" << endl;
@@ -472,12 +473,12 @@ void mainFrame::wordExercise()	//背单词
 		}
 		return;
 	}
-	random_device rd;
-	uniform_int_distribution<int> dicSeed(0, dataBase.wordSize() - 1);	//生成从词典取单词的随机数的种子
-	vector<wordList> answers;
 	int flag = 1;
 	while (flag == 1)
 	{
+		random_device rd;
+		uniform_int_distribution<int> dicSeed(0, dataBase.wordSize() - 1);	//生成从词典取单词的随机数的种子
+		vector<wordList> answers;
 		int TIME = 20;
 		cout << "欢迎进入背单词模式，接下来将会出现20个单词供您记忆。输入\'#\'退出" << endl << endl;
 		system("pause");
@@ -539,11 +540,11 @@ int mainFrame::wordKiller(int Num)		//斩词
 	return 0;
 }
 
-void mainFrame::wordExam()	//呵呵哒模式
+void mainFrame::wordExam()	//考试模式
 {
 	fflush(stdin);
 	system("cls");
-	cout << "****                           6.呵呵哒模式                                ****" << endl;
+	cout << "****                           6.考试模式                                  ****" << endl;
 	if (dataBase.wordIsEmpty())
 	{
 		int ADD = 3;
@@ -580,10 +581,11 @@ void mainFrame::wordExam()	//呵呵哒模式
 	int range;	//单词数目
 	int exam;
 	double ratio;
-	cout << "欢迎进入\"呵呵哒\"模式，您希望考几个单词呢？      ";
-	cin >> range;
-	//range = 5;	//test
+	cout << "欢迎进入考试模式，一共有20个单词，题干可能是中文也可能是英文，祝你好运。" << endl;
+	system("pause");
+	range = 20;	//test
 	cout << "Link start!" << endl << endl;
+	fflush(stdin);
 	for (int i = 0; i < range; i++)
 	{
 		exam = exaSeed(rd);
@@ -604,18 +606,12 @@ void mainFrame::wordExam()	//呵呵哒模式
 			}
 			cout << "Round " << count++ << ": 请选择英文为\"" << optAns[ansNum].getChinese() << "\"的单词。    ";
 
-			while (cin >> chsNum)
-			{
-				chsNum--;	//匹配存放数字习惯
-				if (chsNum < 0 || chsNum > 4)
-				{
-					cout << "输入有误，请重试！   ";
-				}
-			}
+			scanf_s("%d", &chsNum);
 			if (chsNum == ansNum)
 			{
 				score++;
 				cout << "您答对了" << endl;
+				fflush(stdin);
 			}
 			else
 			{
@@ -623,6 +619,7 @@ void mainFrame::wordExam()	//呵呵哒模式
 				cout << "对不起，您答错了。" << endl;
 				dataBase.addWrongTimes(wr);
 				//cout << "+1" << endl;
+				fflush(stdin);
 			}
 		}
 		else if (exam == 1)	/*题干英语选项中文*/
