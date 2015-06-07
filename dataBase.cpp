@@ -18,7 +18,7 @@ __DATABASE::__DATABASE()	/*初始化操作*/
 
 	ifstream fileRead("Data/dictionary.dat");	//打开词典
 	if (!fileRead)
-	{	
+	{
 		/*提示错误信息*/
 		cerr << "找不到词典文件！请将词典文件放入Data文件夹内！" << endl;
 		system("pause");
