@@ -11,16 +11,16 @@ int main()
 	vector<string> cn;
 	int numbuffer;
 	string enbuffer, cnbuffer;
-	while(fileRead >> numbuffer >> enbuffer >> cnbuffer)
+	while(fileRead >> enbuffer >> cnbuffer >> numbuffer)
 	{
-		num.push_back(numbuffer);
 		en.push_back(enbuffer);
 		cn.push_back(cnbuffer);
+		num.push_back(numbuffer);		
 	}
 	fileRead.close();
-	ofstream fileWrite("data.dat", ios::out);
+	ofstream fileWrite("data.dat", ios::out|ios::binary);
 	for(int i = 0; i < cn.size(); i++)
 	{
-		fileWrite << en[i] << endl << cn[i] << endl << 0 << endl;	//初始化词典
+		fileWrite << en[i] << " " << cn[i] << " " << 0 << " ";	//初始化词典
 	}
 }
