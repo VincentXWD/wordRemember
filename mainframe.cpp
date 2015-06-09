@@ -5,8 +5,17 @@
 #include <iostream>
 #include <cctype>
 
-__MAINFRAME::__MAINFRAME() 
+__MAINFRAME::__MAINFRAME() //存名言
 {
+	fflush(stdin);
+	ifstream fileOpen("Data\\motto.dat");
+	char temp[400];
+	while (!fileOpen.eof())
+	{
+		fileOpen.getline(temp, sizeof(temp));
+		motto.push_back(temp);
+	}
+	fileOpen.close();
 }
 
 __MAINFRAME::~__MAINFRAME() 
@@ -23,19 +32,12 @@ void outputBlank(int n)					//输出回车，规划界面。
 
 void mainFrame::famousMotto()	//打印名言
 {
-	fflush(stdin);
-	ifstream fileOpen("Data\\motto.dat");
-	string temp;
-	vector<string> motto;
-	while (fileOpen >> temp)
-	{
-		motto.push_back(temp);
-	}
+
 	random_device rd;	//种子
-	uniform_int_distribution<int> dicSeed(0, 10);	//生成从词典取单词的随机数的种子
+	uniform_int_distribution<int> dicSeed(0, motto.size() - 1);	//生成从词典取单词的随机数的种子
 	int mtrdm = dicSeed(rd);
-	cout << "*********今日名言： " << motto[mtrdm] << "*********" << endl;
-	fileOpen.close();
+	cout << motto[mtrdm];
+	outputBlank(2);
 }
 
 void mainFrame::aboutMe()		//关于作者
@@ -43,7 +45,7 @@ void mainFrame::aboutMe()		//关于作者
 	fflush(stdin);
 	system("cls");
 	outputBlank(10);
-	cout << "                  您发现了彩蛋，Young man！" << endl;
+	cout << "                                      Young man！" << endl;
 	system("Data\\egg.exe");
 	outputBlank(10);
 	system("pause");
@@ -52,7 +54,6 @@ void mainFrame::aboutMe()		//关于作者
 int mainFrame::CLIwordInit()		//命令行版初始化界面
 {
 	fflush(stdin);
-
 	int choice;
 	bool initFlag = true;
 	bool exitflag = false;
@@ -66,7 +67,7 @@ int mainFrame::CLIwordInit()		//命令行版初始化界面
 			outputBlank(12);
 			return EXIT_SUCCESS;
 		}
-		//		famousMotto();
+		famousMotto();
 		cout << "*******************************欢迎进入wordKiller*******************************" << endl;
 		cout << "****                                                                       ****" << endl;
 		cout << "****                           0.单词查询                                  ****" << endl;
@@ -257,7 +258,7 @@ void mainFrame::wordInput(string curEnglish = "!")	//录入新单词
 					else
 					{
 						cout << "您输入的信息有误！请重新输入！(1确认0再想想)    ";
-						fflush(stdin);	//清空缓冲区，防止多次循环
+						fflush(stdin);
 						continue;
 					}
 				}
@@ -656,7 +657,6 @@ void mainFrame::wordExam()	//考试模式
 				int wr = dataBase.searchWord(optAns[ansNum].getEnglish());	//记下错词在词典vector中的位置
 				cout << "对不起，您答错了。" << endl;
 				dataBase.addWrongTimes(wr);	//增加错误次数
-				//cout << "+1" << endl;
 			}
 		}
 	}

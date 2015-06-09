@@ -38,4 +38,5 @@ public:					/*功能*/
 protected:
 	__DATABASE dataBase;	//单词数据库
 	__KILLEDLIST killedBase;//已斩单词数据库
+	vector<string>	motto;	//存放名言
 }mainFrame;

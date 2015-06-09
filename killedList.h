@@ -2,7 +2,7 @@
 
 #include "dataBase.h"
 
-typedef class __KILLEDLIST : public __DATABASE
+typedef class __KILLEDLIST : public __DATABASE	//ºÃ≥–”⁄dataBase¿‡
 {
 public:
 	__KILLEDLIST();

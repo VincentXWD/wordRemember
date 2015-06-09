@@ -120,7 +120,7 @@ int DATABASE::searchWord(string curEnglish)		//¸ù¾ÝÓ¢ÎÄ²éÕÒ¶ÔÓ¦µ¥´Ê£¬·µ»ØÖµÎªµ¥´
 	return NOTFOUND_INT;
 }
 
-bool DATABASE::changeWordNum(int num, wordList curwordlist)				//°´ÐòºÅ¶ÔÓ¦µ¥´Ê²¢ÐÞ¸Ä£¬·µ»ØÊÇ·ñ³É¹¦
+bool DATABASE::changeWordNum(int num, wordList curwordlist)	//°´ÐòºÅ¶ÔÓ¦µ¥´Ê²¢ÐÞ¸Ä£¬·µ»ØÊÇ·ñ³É¹¦
 {
 	if (num < 0 || num > wordSize() - 1)
 	{
