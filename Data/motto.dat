@@ -1,30 +1,44 @@
-生命太短暂，不要去做一些根本没有人想要的东西。——Ash Maurya，Running Lean 
-如果你交给某人一个程序，你将折磨他一整天；如果你教某人如何编写程序，你将折磨他一辈子。——David Leinweber
-软件设计有两种方式：一种方式是，使软件过于简单，明显没有缺陷；另一种方式是，使软件过于复杂，没有明显的缺陷。——C.A.R. Hoare
-其实，我尝试着使Ruby更自然，而不是简单。Ruby看起来很简单，但内部是非常复杂的，就像我们的身体一样。——松本行弘，Ruby之父
-大部分情况下，构建程序的过程本质上是对规范调试的过程。——Fred Brooks，《人月神话》
-软件开发往往是这样：最开始的90%代码占用了开始的90%的开发时间；剩下10%代码同样需要90%的开发时间。——Tom Cargill
-当你试图解决一个你不理解的问题时，复杂化就产成了。——Andy Boothe
-用几个小时来制定计划，可以节省几周的编程时间。—— 匿名
-控制复杂性是计算机编程的本质。—— Brian Kernighan
-计算机科学领域的所有问题都可以通过其他方式间接解决。——David Wheeler
-编程是两队人马在竞争：软件工程师努力设计出最大最好的连白痴都会使用的程序；而宇宙在拼命制造最大最好的白痴。到目前为止，宇宙是胜利者。—— Rick Cook
-调试一个初次见到的代码比重写代码要困难两倍。因此，按照定义，如果你写代码非常巧妙，那么没有人足够聪明来调试它。—— Brian W. Kernighan
-我不是一个伟大的程序员，我只是一个具有良好习惯的优秀程序员。― Kent Beck
-你们中大多数人都熟悉程序员的美德，有三种：那就是懒惰、急躁和傲慢。– Larry Wall，Perl語言发明人
-任何一个傻瓜都会写能够让机器理解的代码，只有好的程序员才能写出人类可以理解的代码。——Martin Fowler
-靠代码行数来衡量开发进度，就像是凭重量来衡量飞机制造的进度。——比尔盖茨
-这不是一个bug，这只是一个未列出来的特性。——匿名
-作为一个程序员，郁闷的事情是，面对一个代码块，却不敢去修改。更糟糕的是，这个代码块还是自己写的。—— Peyton Jones
-它在我的机器上可以很好运行！——大部分程序员
-能说算不上什么，有本事就把你的代码给我看看。——Linus Torvalds，Linux之父
-我认为对象就像是生物学里的细胞，或者网络中的一台计算机，只能够通过消息来通信——Alan Kay，Smalltalk的发明人，面向对象之父
-当你选择了一种语言，意味着你还选择了一组技术、一个社区。——Joshua Bloch
-质量、速度、廉价，选择其中两个。——匿名
-过早的优化是罪恶之源。——Donald Knuth
-没有什么代码的执行速度比空代码更快。——Merb核心原则
-如果你是房间里最聪明的人，那么你走错房间了。——匿名
-如果只需更改一个单一的代码行，你的部门需要花费多长时间？——Mary Poppendieck
-九个人不能让一个孩子在一个月内出生。——Fred Brooks，《人月神话》
-好代码本身就是最好的文档。当你需要添加一个注释时，你应该考虑如何修改代码才能不需要注释。——Steve McConnell，Code Complete 
-一个人在教会电脑之前，别说他真正理解这个东西了。——Donald Knuth
+a strong man will struggle with the storms of fate.  强者能同命运的风暴抗争。
+a man can fail many times, but he isn't a failure until he begins to blame somebody else. 一个人可以失败很多次，但是只要他没有开始责怪旁人，他还不是一个失败者。
+all that you do, do with your might; things done by halves are never done right. 做一切事情都应尽力而为，不可半途而废。 
+a man can succeed at almost anything for which he was unlimited enthusiasm.  只要有无限的热情，一个人几乎可以在任何事情上取得成功。
+cease to struggle and you cease to live. 生命不止，奋斗不息。
+difficult circumstances serve as a textbook of life for people. 困难坎坷是人们的生活教科书。
+energy and persistence conquer all things. 能量加毅力可以征服一切。
+for all pain helps to make us rise, however much we may hate it at the time. 一切痛苦都有助于我们奋发向上，不论我们当时是多么憎恨它。
+failure is the mother of success.  失败乃成功之母。
+fortune shows her power when there is no wise preparation for resisting her. 没有向命运抗争的明智准备，命运便会显示其威力。
+gods determine what you're going to be. 人生的奋斗目标决定你将成为怎样的人。
+great works are performed not by strength but by perseverance. 大业成于百折不挠，不论力量大小。
+genius only means hard-working all one's life. 天才只意味着终身不懈的努力。
+i succeeded because i willed it; i never hesitated. 我成功是因为我有决心，从不踌躇 。
+if you should put even a little on a little, and should do this often, soon this too would become big.  伟大的事业是通过不懈努力，一砖一瓦堆起来的。
+it's better to have fought and lost, than never to have fought at all.  奋战过而失败，强于根本未战。
+meet success like a gentleman and disaster like a man.  优雅地迎接成功，勇敢地面对挫折。
+man errs so long as he strives.人只要奋斗就会犯错误。
+nothing seeks, nothing finds. 无所求则无所获
+none is of freedom or of life deserving unless he daily conquers it anew. 只有每天再度战胜生活并夺取自由的人，才配享受生活的自由。
+no road of flowers leads to glory. 没有一条通往光荣的道路是铺满鲜花的。
+nothing in the world is difficult for one who sets his mind on it. 世上无难事，只怕有心人。
+our destiny offers not the cup of despair, but the chalice of opportunity. 命运给予我们的不是失望之酒，而是机会之杯。
+only those who have the patience to do simple things perfectly ever acquire the skill to do difficult things easily. 只有有耐心圆满完成简单工作的人，才能够轻而易举地完成困难的事。
+on life's earnest battle they only prevail, who daily march onward and never say fail. 生活在顽强战斗中，只有每天不屈不挠奋勇向前的人才能取得胜利。
+prosperity is not without many fears and disasters; adversity is not without comforts and hopes.  幸运中并非不掺杂各种担心与烦恼，而厄运中也并非不存在欣慰与期望。   -- 培根
+pursue your object, be it what it will, steadily and indefatigably. 不管追求什么目标，都应坚持不懈。
+perseverance is falling nineteen times and succeeding the twentieth.  只要坚韧不拔，失败十九次之后，第二十次就会成功。 
+success covers a multitude of blunders .成功由大量的失望铸就。
+strength alone knows conflict, weakness is below even defeat, and is born vanquished. 只有强者才懂得斗争；弱者甚至失败都不够资格，而是生来就是被征服的。
+there is no royal road to science, and only those who do not dread the fatiguing climb of gaining its numinous summits. 在科学上没有平坦的大道，只有不畏劳苦沿着其崎岖之路攀登的人，才有希望达到它光辉的顶点。
+the man who has made up his mind to win will never say "impossible ". 凡是决心取得胜利的人是从来不说"不可能的"。
+towering genius disdains a beaten path. it seeks regions hitherto unexplored. 卓越的天才不屑走旁人走过的路。他寻找迄今未开拓的地区。
+there is no such thing as a great talent without great will - power. 没有伟大的意志力，便没有雄才大略。
+the good seaman is known in bad weather. 惊涛骇浪，方显英雄本色。
+try not to become a man of success but rather try to become a man of value.  不要为成功而努力，要为做一个有价值的人而努力。
+the people who get on in this world are the people who get up and look for circumstances they want, and if they cannot find them, make them. 在这个世界上取得成就的人，都努力去寻找他们想要的机会，如果找不到机会，他们便自己创造机会。
+the failures and reverses which await men - and one after another sadden the brow of youth - add a dignity to the prospect of human life, which no arcadian success would do. 尽管失败和挫折等待着人们，一次次地夺走青春的容颜，但却给人生的前景增添了一份尊严，这是任何顺利的成功都不能做到的。
+the drop of rain makes a hole in the stone, not by violence, but by of falling.  雨滴穿石，不是靠蛮力，而是靠持之以恒。 
+the darkest hour is that before the dawn. 黎明之前最黑暗。
+the important thing in life is to have a great aim, and the determination to attain it. 人生最重要的是树立一个远大的目标，并下定决心去实现它。
+while there is life there is hope. 一息若存，希望不灭。
+where there is a will , there is a way .有志者，事竟成。
+you have to pay the price but if you do you can only win.  为了成功，你必须付出代价。如果你付出了代价，你就会成功。

@@ -229,8 +229,8 @@ void mainFrame::wordInput(string curEnglish = "!")	//录入新单词
 			}
 			if (dataBase.searchWord(curEnglish) >= 0)	//存在
 			{
-				/*提示单词已存在，不需要添加,返回*/
-				cout << "单词已存在，并不需要再次添加。" << endl;
+				/*提示单词已存在，不需要添加,询问是否需要修改。*/
+				cout << "单词已存在！" << endl;
 			}
 			else
 			{
@@ -275,15 +275,40 @@ void mainFrame::wordShow()	//显示词典信息
 	system("cls");
 	cout << "****                           2.显示词典                                  ****" << endl;
 	outputBlank(2);
-	for (int i = 0; i < LEN; i++)
+	if (LEN <= 30)	//单词较少，可以直接输出在屏幕上
 	{
-		wordList BUFFER;
-		BUFFER = dataBase.getWord(i);
-		cout << BUFFER.getEnglish() << " " << BUFFER.getChinese() << endl;
+		for (int i = 0; i < LEN; i++)
+		{
+			wordList BUFFER;
+			BUFFER = dataBase.getWord(i);
+			cout << BUFFER.getEnglish() << " " << BUFFER.getChinese() << endl;
+		}
+		cout << "您的词典里一共有 " << dataBase.wordSize() << "个单词。" << endl;
+		outputBlank(2);
 	}
-	//	system("notepad Data\\dictionary.dat");	//读取文件
-	cout << "您的词典里一共有 " << dataBase.wordSize() << "个单词。" << endl;
-	outputBlank(2);
+	else
+	{
+		char sign;
+		cout << "词典中一共有 " << dataBase.wordSize() << "个单词，是否希望打开单词文件？(1是0否)    ";
+		while (cin >> sign)
+		{
+			if (sign == '1')
+			{
+				system("start Data\\dictionary.dat");	//读取文件
+				system("pause");
+				return ;
+			}
+			else if (sign == '0')
+			{
+				return ;
+			}
+			else
+			{
+				cout << "您输入的指令有误，请重新输入！    ";
+				fflush(stdin);
+			}
+		}
+	}
 	fflush(stdin);
 	system("pause");
 }
