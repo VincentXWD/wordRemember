@@ -1,12 +1,9 @@
+//wordList.cpp
 #include "wordList.h"
-
-
 
 __WORDLIST::__WORDLIST(string en, string cn, int tm = 0) : English(en), Chinese(cn), WrongTimes(tm){}
 
 __WORDLIST::__WORDLIST(string en, string cn) : English(en), Chinese(cn){}
-
-__WORDLIST::~__WORDLIST() {}
 
 const string &wordList::getEnglish() const
 {

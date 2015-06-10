@@ -1,3 +1,4 @@
+//mainframe.h
 #pragma once
 
 #include <vector>
@@ -15,7 +16,7 @@ typedef class __MAINFRAME
 {
 public:					/*构造、析构函数*/
 		__MAINFRAME();
-		~__MAINFRAME();
+		~__MAINFRAME() = default;
 public:					/*功能*/
 	int CLIwordInit();	//初始化界面
 	void wordInput(string);	//录入新单词
@@ -27,7 +28,7 @@ public:					/*功能*/
 	int wordKiller(int);//斩词
 	void killedRescue();//恢复已斩单词
 	void wordExercise();//背单词(可斩词)
-	void wordExam();	//呵呵哒模式
+	void wordExam();	//考试模式
 	void wordReview();	//复习单词功能
 	void aboutMe();		//关于作者		
 	void famousMotto();	//打印名言		**

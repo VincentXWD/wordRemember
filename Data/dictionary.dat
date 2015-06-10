@@ -2,9 +2,8 @@ Christmas 圣诞 0
 English 英语 0
 FALSE 假 0
 I 我 0
-TRUE 真 0
-a 字母a 0
-ability 能力 0
+a 字母a 1
+ability 能力 1
 able 能够的 0
 about 大约 0
 above 上面的 0
@@ -19,9 +18,9 @@ account 帐户 0
 accuse 指责 0
 accustom 习惯于 0
 across 横过 0
-act 行为 0
+act 行为 1
 action 行动 0
-active 活跃 0
+active 活跃 1
 actor 演员 0
 actual 实际 0
 add 添加 0
@@ -34,7 +33,7 @@ advance 前进 0
 advantage 优势 0
 adventure 冒险 0
 advertise 广告 0
-advice 建议 0
+advice 建议 1
 advise 建议 0
 affair 事件 0
 afford 负担 0
@@ -85,7 +84,6 @@ any 任何 0
 anybody 任何人 0
 anyhow 无论如何 0
 anyone 任何人 0
-anything 任何事 0
 anyway 总之 0
 anywhere 任何地方 0
 apart 除了 0
@@ -134,6 +132,7 @@ awake 清醒 0
 away 离去 0
 awkward 尴尬 0
 axe 斧 0
+baba 爸爸 0
 baby 婴儿 0
 backward 落后 0
 bad 糟糕的 0
@@ -177,7 +176,6 @@ believe 相信 0
 bell 钟 0
 belong 属于 0
 below 下面 0
-belt 带 0
 bend 弯曲 0
 beneath 下方 0
 beside 旁边 0
@@ -250,7 +248,7 @@ bury 埋葬 0
 bus 巴士 0
 bush 布什 0
 business 商业 0
-businessman 商人 0
+businessman 商人 1
 busy 忙碌的 0
 but 但是 0
 butter 黄油 0
@@ -322,7 +320,7 @@ clear 清楚的 0
 clerk 办事员 0
 clever 聪明的 0
 climb 攀登 0
-clock 时钟 0
+clock 时钟 1
 close 关闭 0
 cloth 布 0
 clothe 衣服 0
@@ -370,7 +368,7 @@ confidence 信心 0
 confident 信心 0
 confuse 混淆 0
 confusion 混乱 0
-connect 连接 0
+connect 连接 1
 connection 连接 0
 conscience 良心 0
 conscious 意识 0
@@ -450,7 +448,7 @@ decide 决定 0
 decision 决定 0
 decisive 决定性的 0
 declare 申报 0
-decrease 减少 0
+decrease 减少 1
 deed 契据 0
 deep 深奥的 0
 defeat 失败 0
@@ -466,7 +464,7 @@ delivery 传递 0
 demand 需求 0
 department 部门 0
 depend 依赖 0
-dependence 依赖 0
+dependence 依赖 1
 dependent 依赖 0
 depth 深度 0
 descend 下降 0
@@ -551,7 +549,7 @@ earn 赚取 0
 earnest 认真 0
 earth 地球 0
 ease 缓解 0
-east 东部 0
+east 东部 1
 eastern 东部 0
 easy 容易的 0
 eat 吃 0
@@ -576,7 +574,6 @@ elsewhere 其他 0
 empire 帝国 0
 employ 聘用 0
 employee 雇员 0
-empty 空的 0
 encourage 鼓励 0
 end 末端 0
 enemy 敌人 0
@@ -590,7 +587,7 @@ entire 整个 0
 entrance 入口 0
 envelope 信封 0
 envy 羡慕 0
-equal 平等 0
+equal 平等 1
 escape 逃生 0
 especially 特别是 0
 essence 本质 0
@@ -687,7 +684,7 @@ finish 完成 0
 fire 火 0
 firm 公司 0
 first 首先 0
-fish 鱼 0
+fish 鱼 1
 fit 适合 0
 fix 固定 0
 flag 旗 0
@@ -714,7 +711,7 @@ force 力 0
 foreign 外国 0
 forest 森林 0
 forget 忘记 0
-forgive 原谅 0
+forgive 原谅 1
 fork 叉 0
 form 形式 0
 formal 正式 0
@@ -834,6 +831,7 @@ hide 隐藏 0
 high 高的 0
 highway 公路 0
 hill 山 0
+him 他 0
 hire 租用 0
 history 历史 0
 hit 打击 0
@@ -907,7 +905,7 @@ into 成 0
 introduce 引进 0
 introduction 介绍 0
 invent 发明 0
-invention 发明 0
+invention 发明 1
 invite 邀请 0
 iron 铁 0
 island 海岛办事处 0
@@ -927,7 +925,6 @@ keep 保持 0
 key 钥匙 0
 kick 踢 0
 kill 杀死 0
-kind 种类 0
 king 国王 0
 kingdom 王国 0
 kiss 亲吻 0
@@ -1005,7 +1002,7 @@ lose 失去 0
 loss 损失 0
 lot 很多 0
 loud 高声的 0
-love 爱 0
+love 爱 1
 lovely 可爱的 0
 low 低的 0
 loyal 忠诚 0
@@ -1015,12 +1012,13 @@ lump 肿块 0
 lunch 午餐 0
 lung 肺 0
 machine 机 0
-machinery 机械 0
+machinery 机械 1
 mad 疯狂的 0
 mail 邮件 0
 main 主要的 0
 make 制造 0
 male 男性 0
+mama 妈妈 0
 man 男人 0
 manage 管理 0
 mankind 人类 0
@@ -1081,7 +1079,7 @@ model 模型 0
 moderate 温和 0
 modern 现代 0
 modest 温和 0
-moment 时刻 0
+moment 时刻 2
 money 金钱 0
 month 本月 0
 moon 月亮 0
@@ -1105,7 +1103,7 @@ music 音乐 0
 musician 音乐家 0
 must 必须 0
 mystery 神秘 0
-nail 钉 0
+nail 钉 1
 name 名字 0
 narrow 狭窄的 0
 nation 民族 0
@@ -1178,7 +1176,7 @@ operator 经营者 0
 opinion 意见 0
 opportunity 机会 0
 oppose 反对 0
-opposite 相反 0
+opposite 相反 1
 opposition 反对 0
 or 或 0
 orange 橙色 0
@@ -1308,7 +1306,7 @@ press 新闻 0
 pressure 压力 0
 pretend 假装 0
 pretty 漂亮的 0
-prevent 防止 0
+prevent 防止 1
 prevention 预防 0
 price 价格 0
 pride 骄傲的 0
@@ -1389,7 +1387,7 @@ record 记录 0
 red 红色 0
 reduce 减少 0
 reduction 减少 0
-refer 指 0
+refer 指 1
 reference 参考 0
 reflect 反映 0
 reflection 反思 0
@@ -1467,7 +1465,6 @@ rug 地毯 0
 ruin 废墟 0
 rule 规则 0
 run 跑 0
-rush 繁忙 0
 rust 锈病 0
 sacred 神圣 0
 sacrifice 牺牲 0
@@ -1712,7 +1709,6 @@ suffer 受苦 0
 sugar 糖 0
 suggest 建议 0
 suggestion 建议 0
-suit 合适 0
 summer 夏天 0
 supper 晚饭 0
 supply 供应 0
@@ -1734,14 +1730,13 @@ swell 膨胀 0
 swim 游泳 0
 swing 摆动 0
 sympathetic 同情 0
-sympathy 同情 0
+sympathy 同情 1
 system 系统 0
 table 桌子 0
 tail 尾 0
 take 拿 0
 talk 谈论 0
 tall 高的 0
-tap 自来水 0
 taste 品尝 0
 tax 税 0
 taxi 的士 0
@@ -1872,7 +1867,7 @@ valuable 宝贵 0
 value 值 0
 variety 品种 0
 various 各 0
-veil 面纱 0
+veil 面纱 3
 verb 动词 0
 verse 诗 0
 very 非常 0
@@ -1901,7 +1896,7 @@ warmth 温暖 0
 warn 警告 0
 wash 洗 0
 waste 浪费 0
-watch 观看 0
+watch 观看 2
 water 水 0
 wave 波 0
 wax 蜡 0
@@ -1967,7 +1962,7 @@ wood 木 0
 wooden 木 0
 word 字 0
 work 工作 0
-world 世界 0
+world 世界 1
 worry 担心 0
 worse 更糟 0
 worship 崇拜 0
@@ -1979,7 +1974,6 @@ wreck 沉船 0
 wrist 手腕 0
 write 写 0
 wrong 错误的 0
-yard 码 0
 year 年 0
 yellow 黄色 0
 yes 是 0

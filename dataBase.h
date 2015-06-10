@@ -1,5 +1,4 @@
-/*直接对文件操作的类*/
-
+//dataBase.h
 #pragma once
 
 #include <iostream> 
