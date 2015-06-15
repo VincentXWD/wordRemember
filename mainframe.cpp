@@ -44,7 +44,7 @@ void mainFrame::aboutMe()		//关于作者
 	system("cls");
 	outputBlank(10);
 	cout << "                                      Young man！" << endl;
-	system("Data\\egg.exe");
+	system("start Data\\egg.exe");
 	outputBlank(10);
 }
 
@@ -125,7 +125,7 @@ int mainFrame::CLIwordInit()		//命令行版初始化界面
 		}
 		system("cls");
 	}
-}
+} 
 
 void mainFrame::wordLooking()//查询单词
 {
@@ -162,7 +162,7 @@ void mainFrame::wordLooking()//查询单词
 				}
 				else
 				{
-					cout << "您输入的信息有误！请重新输入！    ";
+					cout << "您输入的信息有误！请重新输入！" << endl;
 					fflush(stdin);
 				}
 			}
@@ -312,7 +312,7 @@ void mainFrame::wordShow()	//显示词典信息
 	}
 	fflush(stdin);
 }
-
+	
 void mainFrame::killShow()	//显示已斩单词
 {
 	fflush(stdin);
@@ -621,7 +621,6 @@ void mainFrame::wordExam()	//考试模式
 	getchar();
 }
 
-
 void mainFrame::wordChange()	//修改单词
 {
 	fflush(stdin);
@@ -862,13 +861,26 @@ void mainFrame::wordReview()	//复习单词功能
 				else if (curEnglish == temp[rdm].getEnglish())
 				{
 					int choice;
-					cout << "您回答正确，是否把它放回（放回就不会出现在这里了！）？(1放了吧/0留着)    ";
-					cin >> choice;
-					if (choice == 1)
+					cout << "您回答正确，是否把它放回（放回就不会出现在这里了！）？(1放了吧/0留着)   ";
+					while (choice = _getch())
 					{
-						dataBase.rmFromWrong(curEnglish);
-						swap(temp[rdm], temp[temp.size() - 1]);
-						temp.pop_back();
+						if (choice == '1')
+						{
+							cout << "(放)" << endl;
+							dataBase.rmFromWrong(curEnglish);
+							swap(temp[rdm], temp[temp.size() - 1]);
+							temp.pop_back();
+							break;
+						}
+						else if (choice == '0')
+						{
+							cout << "（留）" << endl;
+							break;
+						}
+						else
+						{
+							cout << endl << "您输入的指令有误，请重新输入。    ";
+						}
 					}
 					if (dataBase.getWrongWords().size() == 0)
 					{
@@ -892,7 +904,6 @@ void mainFrame::wordReview()	//复习单词功能
 	fflush(stdin);
 	getchar();
 }
-
 
 int mainFrame::wordKiller(int Num)		//斩词
 {

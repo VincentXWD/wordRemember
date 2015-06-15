@@ -43,7 +43,7 @@ __DATABASE::~__DATABASE()						//±£´æ´Êµä
 	for (int i = 0; i < wordSize(); i++)
 	{
 		fileWrite << word[i].getEnglish() << " " 
-				  << word[i].getChinese() << " " 
+				  << word[i].getChinese() << " "
 				  << word[i].getWrongTimes() << endl;
 	}
 	fileWrite.close();

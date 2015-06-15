@@ -18,7 +18,7 @@ account 帐户 0
 accuse 指责 0
 accustom 习惯于 0
 across 横过 0
-act 行为 1
+act 行为 2
 action 行动 0
 active 活跃 1
 actor 演员 0
@@ -33,7 +33,7 @@ advance 前进 0
 advantage 优势 0
 adventure 冒险 0
 advertise 广告 0
-advice 建议 1
+advice 建议 2
 advise 建议 0
 affair 事件 0
 afford 负担 0
@@ -132,7 +132,6 @@ awake 清醒 0
 away 离去 0
 awkward 尴尬 0
 axe 斧 0
-baba 爸爸 0
 baby 婴儿 0
 backward 落后 0
 bad 糟糕的 0
@@ -192,7 +191,7 @@ birth 出生 0
 bit 少量 0
 bite 咬 0
 bitter 苦 0
-black 黑色 0
+black 黑色 1
 blade 刀片 0
 blame 责备 0
 bleed 出血 0
@@ -368,7 +367,7 @@ confidence 信心 0
 confident 信心 0
 confuse 混淆 0
 confusion 混乱 0
-connect 连接 1
+connect 连接 2
 connection 连接 0
 conscience 良心 0
 conscious 意识 0
@@ -377,7 +376,7 @@ contain 包含 0
 content 内容 0
 continue 继续 0
 control 控制 0
-convenience 方便 0
+convenience 方便 1
 convenient 方便 0
 conversation 交谈 0
 cook 烹调 0
@@ -549,7 +548,7 @@ earn 赚取 0
 earnest 认真 0
 earth 地球 0
 ease 缓解 0
-east 东部 1
+east 东部 0
 eastern 东部 0
 easy 容易的 0
 eat 吃 0
@@ -717,7 +716,7 @@ form 形式 0
 formal 正式 0
 former 前 0
 forth 规定 0
-fortunate 幸运 0
+fortunate 幸运 1
 fortune 财富 0
 forward 转寄 0
 frame 结构 0
@@ -871,7 +870,7 @@ imaginary 虚 0
 imagine 想像 0
 imitation 模仿 0
 immediate 即时 0
-immense 巨大 0
+immense 巨大 2
 importance 重要性 0
 important 重要的 0
 impossible 不可能 0
@@ -1002,7 +1001,7 @@ lose 失去 0
 loss 损失 0
 lot 很多 0
 loud 高声的 0
-love 爱 1
+love 爱 0
 lovely 可爱的 0
 low 低的 0
 loyal 忠诚 0
@@ -1018,7 +1017,6 @@ mail 邮件 0
 main 主要的 0
 make 制造 0
 male 男性 0
-mama 妈妈 0
 man 男人 0
 manage 管理 0
 mankind 人类 0
@@ -1046,7 +1044,7 @@ meat 肉 0
 mechanic 机械 0
 mechanism 机制 0
 medical 医疗 0
-medicine 医药 0
+medicine 医药 1
 meet 遇见 0
 melt 熔体 0
 member 成员 0
@@ -1126,7 +1124,7 @@ never 从不 0
 new 新的 0
 news 新闻 0
 newspaper 报纸 0
-next 下一个 0
+next 下一个 1
 nice 好的 0
 night 晚上 0
 no 否 0
@@ -1138,7 +1136,7 @@ noon 中午 0
 nor 也不 0
 north 北 0
 northern 北部 0
-nose 鼻子 0
+nose 鼻子 1
 not 不 0
 note 注意 0
 nothing 无 0
@@ -1171,12 +1169,12 @@ only 仅仅 0
 onto 到 0
 open 打开 0
 operate 经营 0
-operation 操作 0
+operation 操作 1
 operator 经营者 0
 opinion 意见 0
 opportunity 机会 0
 oppose 反对 0
-opposite 相反 1
+opposite 相反 2
 opposition 反对 0
 or 或 0
 orange 橙色 0
@@ -1499,7 +1497,7 @@ scientific 科学 0
 scientist 科学家 0
 scrape 刮 0
 scratch 从头开始 0
-screen 屏幕 0
+screen 屏幕 1
 screw 螺丝钉 0
 sea 海 0
 search 搜索 0
@@ -1673,11 +1671,11 @@ stir 搅拌 0
 stock 股票 0
 stomach 胃 0
 stone 石 0
-stop 停止 0
+stop 停止 1
 store 存储 0
 storm 风暴 0
-story 故事 0
-stove 炉灶 0
+story 故事 1
+stove 炉灶 1
 straight 直的 0
 straighten 整顿 0
 strange 陌生的 0
@@ -1691,7 +1689,7 @@ strict 严格 0
 strike 罢工 0
 string 字符串 0
 strip 带 0
-stroke 敲击 0
+stroke 敲击 1
 strong 强壮的 0
 struggle 斗争 0
 student 学生 0
@@ -1771,7 +1769,7 @@ thief 小偷 0
 thin 薄的 0
 thing 事情 0
 think 思考 0
-this 这个 0
+this 这个 1
 thorough 彻底 0
 those 那些 0
 though 尽管 0
@@ -1825,7 +1823,7 @@ travel 旅行 0
 tray 托盘 0
 treasure 珍惜 0
 treasury 库务署 0
-treat 对待 0
+treat 对待 1
 tree 树 0
 tremble 颤抖 0
 trial 试验 0
@@ -1881,7 +1879,7 @@ virtue 美德 0
 visit 访问 0
 visitor 访客 0
 vote 投票 0
-voyage 航程 0
+voyage 航程 1
 wage 工资 0
 wait 等待 0
 waiter 服务员 0
@@ -1896,7 +1894,7 @@ warmth 温暖 0
 warn 警告 0
 wash 洗 0
 waste 浪费 0
-watch 观看 2
+watch 观看 0
 water 水 0
 wave 波 0
 wax 蜡 0
