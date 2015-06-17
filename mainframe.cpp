@@ -147,7 +147,7 @@ void mainFrame::wordLooking()//查询单词
 		int wd = dataBase.searchWord(curEnglish);
 		if (wd == -1)
 		{
-			cout << "并没有找到该单词！您希望添加这个单词吗？   (1是/0否)    ";
+			cout << "并没有找到该单词！您希望添加这个单词吗？   (1是/0否)" << endl;
 			while (add = _getch())
 			{
 				if (add == '1')
@@ -238,7 +238,7 @@ void mainFrame::wordInput(string curEnglish = "!")	//录入新单词
 				cin >> curChinese;
 				char flag = '0';
 				int exflag = 0;
-				cout << "您要录入的单词为: " << curEnglish << "， 它的解释为： " << curChinese << "确认录入本单词吗？(1确认0再想想) ";
+				cout << "您要录入的单词为: " << curEnglish << "， 它的解释为： " << curChinese << "确认录入本单词吗？(1确认0再想想) " << endl;
 				while (!exflag)
 				{
 					flag = _getch();
@@ -257,7 +257,7 @@ void mainFrame::wordInput(string curEnglish = "!")	//录入新单词
 					else
 					{
 						cout << endl;
-						cout << "您输入的信息有误！请重新输入！(1确认0再想想)";
+						cout << "您输入的信息有误！请重新输入！(1确认0再想想)" << endl;
 						fflush(stdin);
 						continue;
 					}
@@ -560,7 +560,7 @@ void mainFrame::wordExam()	//考试模式
 			chsNum = _getch();
 			if (chsNum == 27)
 			{
-				return ;
+				return;
 			}
 			chsNum = chsNum - '0' - 1;
 			if (chsNum == ansNum)
@@ -596,11 +596,11 @@ void mainFrame::wordExam()	//考试模式
 			cout << "Round " << count++ << ": 请选择中文为\"" << optAns[ansNum].getEnglish() << "\"的汉语。    ";
 
 			chsNum = _getch();
-			chsNum = chsNum - '0' - 1;	//匹配存放数字习惯
 			if (chsNum == 27)
 			{
 				return;
 			}
+			chsNum = chsNum - '0' - 1;	//匹配存放数字习惯
 			if (chsNum == ansNum)
 			{
 				score++;

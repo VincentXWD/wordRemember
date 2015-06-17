@@ -23,7 +23,7 @@ action 行动 0
 active 活跃 1
 actor 演员 0
 actual 实际 0
-add 添加 0
+add 添加 1
 address 地址 0
 admire 佩服 0
 admission 入院 0
@@ -36,7 +36,7 @@ advertise 广告 0
 advice 建议 2
 advise 建议 0
 affair 事件 0
-afford 负担 0
+afford 负担 1
 afraid 害怕 0
 after 后 0
 afternoon 下午 0
@@ -90,7 +90,6 @@ apart 除了 0
 appear 出现 0
 appearance 外观 0
 application 应用程序 0
-apply 应用 0
 appoint 任命 0
 approve 批准 0
 arch 弓 0
@@ -150,7 +149,7 @@ basic 基本 0
 basis 基础 0
 basket 篮 0
 bath 浴 0
-bathe 洗澡 0
+bathe 洗澡 1
 battle 战斗 0
 bay 湾 0
 be 是 0
@@ -168,7 +167,7 @@ beg 乞求 0
 begin 开始 0
 behave 行为 0
 behavior 行为 0
-behind 背后 0
+behind 背后 1
 being 存在 0
 belief 信念 0
 believe 相信 0
@@ -206,7 +205,7 @@ boast 吹嘘 0
 boat 船 0
 body 身体 0
 boil 煮沸 0
-bold 大胆 0
+bold 大胆 1
 bone 骨 0
 book 书 0
 border 边界 0
@@ -241,7 +240,7 @@ brush 刷 0
 build 建造 0
 bunch 束 0
 bundle 丛 0
-burn 烧伤 0
+burn 烧伤 1
 burst 爆裂 0
 bury 埋葬 0
 bus 巴士 0
@@ -266,7 +265,7 @@ cap 帽 0
 cape 角 0
 capital 资本 0
 captain 队长 0
-car 小汽车 0
+car 小汽车 1
 card 卡 0
 care 关心 0
 carriage 运输 0
@@ -306,14 +305,12 @@ choose 选择 0
 church 教堂 0
 circle 圈 0
 circular 通告 0
-citizen 公民 0
 city 城市 0
 civilize 教化 0
 claim 主张 0
 class 类 0
 classification 分类 0
 classify 分类 0
-clay 粘土 0
 clean 清洁的 0
 clear 清楚的 0
 clerk 办事员 0
@@ -397,7 +394,6 @@ course 课程 0
 court 法院 0
 cousin 表兄弟姊妹 0
 cover 封面 0
-cow 牛 0
 crack 裂纹 0
 crash 崩溃 0
 cream 奶油 0
@@ -527,7 +523,6 @@ down 向下的 0
 dozen 打 0
 drag 拖动 0
 draw 绘制 0
-dream 梦想 0
 dress 礼服 0
 drink 喝 0
 drive 驾驶 0
@@ -801,7 +796,6 @@ handle 把柄 0
 hang 挂起 0
 happen 发生 0
 happy 快乐的 0
-harbor 港 0
 hard 硬的 0
 hardly 很难 0
 harm 伤害 0
@@ -823,6 +817,7 @@ heat 加热 0
 heaven 天堂 0
 heavy 沉重的 0
 height 高度 0
+hello 你好 0
 help 帮助 0
 here 这里 0
 hesitate 犹豫 0
@@ -870,7 +865,7 @@ imaginary 虚 0
 imagine 想像 0
 imitation 模仿 0
 immediate 即时 0
-immense 巨大 2
+immense 巨大 3
 importance 重要性 0
 important 重要的 0
 impossible 不可能 0
@@ -997,7 +992,7 @@ long 长的 0
 look 看 0
 loose 松散 0
 lord 洛德 0
-lose 失去 0
+lose 失去 1
 loss 损失 0
 lot 很多 0
 loud 高声的 0
@@ -1024,7 +1019,7 @@ manner 方式 0
 manufacture 制造 0
 many 许多 0
 map 地图 0
-march 3月 0
+march 3月 1
 mark 商标 0
 market 市场 0
 marriage 婚姻 0
@@ -1077,7 +1072,7 @@ model 模型 0
 moderate 温和 0
 modern 现代 0
 modest 温和 0
-moment 时刻 2
+moment 时刻 3
 money 金钱 0
 month 本月 0
 moon 月亮 0
@@ -1107,7 +1102,7 @@ narrow 狭窄的 0
 nation 民族 0
 native 原生 0
 nature 性质 0
-near 附近的 0
+near 附近的 1
 neat 整洁 0
 necessary 必要 0
 necessity 必要性 0
@@ -1145,7 +1140,7 @@ now 现在 0
 nowhere 无处 0
 number 号码 0
 numerous 无数 0
-nurse 护士 0
+nurse 护士 1
 nut 螺母 0
 obey 服从 0
 object 对象 0
@@ -1463,7 +1458,7 @@ rug 地毯 0
 ruin 废墟 0
 rule 规则 0
 run 跑 0
-rust 锈病 0
+rust 锈病 1
 sacred 神圣 0
 sacrifice 牺牲 0
 sad 悲哀的 0
@@ -1759,7 +1754,6 @@ that 那个 0
 the 那个 0
 theater 影院 0
 theatrical 戏剧 0
-then 那么 0
 there 那里 0
 therefore 因此 0
 these 这些 0
@@ -1772,7 +1766,7 @@ think 思考 0
 this 这个 1
 thorough 彻底 0
 those 那些 0
-though 尽管 0
+though 尽管 1
 thread 线 0
 threat 威胁 0
 threaten 威胁 0
@@ -1825,7 +1819,6 @@ treasure 珍惜 0
 treasury 库务署 0
 treat 对待 1
 tree 树 0
-tremble 颤抖 0
 trial 试验 0
 tribe 部落 0
 trick 把戏 0
@@ -1850,7 +1843,7 @@ unity 团结 0
 universal 通用 0
 universe 宇宙 0
 university 大学 0
-unless 除非 0
+unless 除非 1
 until 直到 0
 up 向上 0
 upon 经 0
@@ -1888,7 +1881,7 @@ walk 步行 0
 wall 墙 0
 wander 漫步 0
 want 想要 0
-war 战争 0
+war 战争 1
 warm 暖和的 0
 warmth 温暖 0
 warn 警告 0
@@ -1942,7 +1935,6 @@ will 意志 0
 win 赢 0
 wind 风 0
 window 窗口 0
-wine 葡萄酒 0
 wing 翼 0
 winter 冬天 0
 wipe 擦 0
